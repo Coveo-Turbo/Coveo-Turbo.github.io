@@ -1,0 +1,50 @@
+body {
+    background-color: #dbdbdb;
+}
+
+div.page-content {
+    padding: 5em;
+}
+
+.page-preview {
+    background-color: #ffffff;
+    margin: 2em;
+    padding: 2em;
+    border-radius: 5px;
+}
+
+.link-title {
+    font-size: 1.5em;
+}
+
+p {
+    margin: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+}
+
+.page-content > ol, .page-content > ul {
+    padding-left: 2em;
+}
+
+.page-content > ul {
+    list-style: disc;
+}
+
+.page-content > ol {
+    list-style: decimal;
+}
+
+.post-meta {
+    font-size: 0.75em;
+    color: #525252;
+}
