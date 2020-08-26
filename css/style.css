@@ -57,11 +57,13 @@ blockquote {
 .column-1 {
     float: left;
     width: 60%;
+    min-width: 300px;
 }
 
 .column-2 {
     float: right;
     width: 25%;
+    min-width: 250px;
 }
 
 /*
