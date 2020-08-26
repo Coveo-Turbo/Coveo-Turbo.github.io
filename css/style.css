@@ -3,7 +3,7 @@ body {
 }
 
 div.page-content {
-    padding: 5em;
+    margin: 5em 3.75% 0 3.75%;
 }
 
 .page-preview {
@@ -47,4 +47,48 @@ blockquote {
 .post-meta {
     font-size: 0.75em;
     color: #525252;
+}
+
+.column-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.column-1 {
+    float: left;
+    width: 60%;
+}
+
+.column-2 {
+    float: right;
+    width: 25%;
+}
+
+/*
+.column {
+ width: 30%;
+}*/
+.icon-turbo {
+    background-image: url(https://avatars1.githubusercontent.com/u/65977413);
+    background-size: 60px;
+}
+
+.coveo-result-frame .coveo-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+}
+
+.coveo-result-row .coveo-turbo .group > .CoveoFieldValue > span:not([class]) {
+    font-size: 13px;
+    line-height: 1.5em;
+    border-radius: 3px;
+    padding: 0 5px 2px;
+    background-color: slategray;
+    color: white;
+}
+
+.CoveoSearchbox .CoveoSearchButton {
+    background-color: white;
 }
