@@ -73,73 +73,8 @@
       </div>
     </div>
   </header>
-  <div class="column-container">
-    <div class="page-content column-1 column">
-      {{ content }}
-    </div>
-    <div class="page-content component-search-container column-2 column">
-      <div class="CoveoSearchInterface" id="search">
-        <div class="coveo-search-section">
-          <div class="CoveoSearchbox" data-placeholder="Search Turbo Components..."></div>
-        </div>
-        <div class="coveo-main-section">
-        <div class="CoveoAnalytics" data-search-hub="Coveo Turbo Site"></div>
-        <div class="CoveoTriggers"></div>
-        <div class="CoveoResultList" layout="list">
-          <script id="coveo-turbo" class="result-template" type="text/html">
-            <div class="coveo-result-frame">
-                <div class="coveo-result-row">
-                  <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;">
-                    <span class="CoveoIcon" data-value="icon-turbo" data-label-value="Turbo" data-with-label="false"></span>
-                    <div class="CoveoQuickview"></div>
-                  </div>
-                  <div class="coveo-result-cell" style="padding-left:15px;">
-                    <div class="coveo-result-row">
-                      <div class="coveo-result-cell" style="font-size:18px;">
-                        <div class="CoveoFieldValue ResultSource" data-field="@source"></div>
-                      </div>
-                      <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
-                        <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
-                      </div>
-                    </div>
-                    <div class="coveo-result-row">
-                      <div class="coveo-result-cell" style="font-size:18px;">
-                        <a class="CoveoResultLink" data-title-template="${raw.formattedtitle}"></a>
-                      </div>
-                      <div class="coveo-result-cell external-link">
-                        <a class="CoveoResultLink icon-external-link" data-title-template=" " target="_blank"></a>
-                      </div>
-                    </div>
-                    <div class="coveo-result-row">
-                      <div class="coveo-result-cell">
-                        <span class="CoveoFieldValue" data-field="@turbodescription"></span>
-                      </div>
-                    </div>
-                    <div class="coveo-result-row coveo-turbo" style="margin-top:10px;">
-                      <div class="coveo-result-cell" style="display:grid">
-                        <div class="group">
-                          <span class="CoveoFieldValue" data-field="@turbonpmcommand" data-text-caption="Install Command:"></span>
-                          <span class="CoveoCopyToClipboard" data-field="@turbonpmcommand" data-caption=" "></span>
-                        </div>
-                        <div class="group">
-                          <span class="CoveoFieldValue" data-field="@turbotypescriptimport" data-text-caption="Typescript Import:"></span>
-                          <span class="CoveoCopyToClipboard" data-field="@turbotypescriptimport" data-caption=" "></span>
-                        </div>
-                        <div class="group">
-                          <span class="CoveoFieldValue" data-field="@turbojavascriptimport" data-text-caption="Javascript Import:"></span>
-                          <span class="CoveoCopyToClipboard" data-field="@turbojavascriptimport" data-caption=" "></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </script>
-          </div>
-        </div>
-        <div class="CoveoResultsPerPage" data-choices-displayed="5, 10, 20" data-initial-choice="5"></div>
-      </div>
-    </div>
+  <div class="page-content">
+    {{ content }}
   </div>
 </body>
 

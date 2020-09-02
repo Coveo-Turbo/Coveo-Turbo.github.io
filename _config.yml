@@ -26,7 +26,7 @@ url: "https://coveo-turbo.github.io"
 github_username:  Coveo-Turbo
 collections:
   home:
-    output: true
+    output: false
   docs:
     output: true
 
