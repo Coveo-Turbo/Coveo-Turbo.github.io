@@ -1,71 +1,132 @@
 ---
 layout: base
 ---
-<div class="column-container">
-    <div class="column-1 column">
-        {{ content }}
-    </div>
-    <div class="component-search-container column-2 column">
-        <div class="CoveoSearchInterface" id="search">
-            <div class="coveo-search-section">
-                <div class="CoveoSearchbox" data-placeholder="Search Turbo Components..."></div>
-            </div>
-            <div class="coveo-main-section">
-                <div class="CoveoAnalytics" data-search-hub="Coveo Turbo Site"></div>
-                <div class="CoveoTriggers"></div>
-                <div class="CoveoResultList" layout="list">
-                    <script id="coveo-turbo" class="result-template" type="text/html">
-            <div class="coveo-result-frame">
-                <div class="coveo-result-row">
-                  <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;">
-                    <span class="CoveoIcon" data-value="icon-turbo" data-label-value="Turbo" data-with-label="false"></span>
-                    <div class="CoveoQuickview"></div>
-                  </div>
-                  <div class="coveo-result-cell" style="padding-left:15px;">
-                    <div class="coveo-result-row">
-                      <div class="coveo-result-cell" style="font-size:18px;">
-                        <div class="CoveoFieldValue ResultSource" data-field="@source"></div>
-                      </div>
-                      <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
-                        <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
-                      </div>
-                    </div>
-                    <div class="coveo-result-row">
-                      <div class="coveo-result-cell" style="font-size:18px;">
-                        <a class="CoveoResultLink" data-title-template="${raw.formattedtitle}"></a>
-                      </div>
-                      <div class="coveo-result-cell external-link">
-                        <a class="CoveoResultLink icon-external-link" data-title-template=" " target="_blank"></a>
-                      </div>
-                    </div>
-                    <div class="coveo-result-row">
-                      <div class="coveo-result-cell">
-                        <span class="CoveoFieldValue" data-field="@turbodescription"></span>
-                      </div>
-                    </div>
-                    <div class="coveo-result-row coveo-turbo" style="margin-top:10px;">
-                      <div class="coveo-result-cell" style="display:grid">
-                        <div class="group">
-                          <span class="CoveoFieldValue" data-field="@turbonpmcommand" data-text-caption="Install Command:"></span>
-                          <span class="CoveoCopyToClipboard" data-field="@turbonpmcommand" data-caption=" "></span>
-                        </div>
-                        <div class="group">
-                          <span class="CoveoFieldValue" data-field="@turbotypescriptimport" data-text-caption="Typescript Import:"></span>
-                          <span class="CoveoCopyToClipboard" data-field="@turbotypescriptimport" data-caption=" "></span>
-                        </div>
-                        <div class="group">
-                          <span class="CoveoFieldValue" data-field="@turbojavascriptimport" data-text-caption="Javascript Import:"></span>
-                          <span class="CoveoCopyToClipboard" data-field="@turbojavascriptimport" data-caption=" "></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </script>
-                </div>
-            </div>
-            <div class="CoveoResultsPerPage" data-choices-displayed="5, 10, 20" data-initial-choice="5"></div>
+<section class="turbo-hero">
+  <div class="container">
+    <div class="f-row f-space-between f-align-center">
+      <div class="col-f-1 col-p">
+        <div class="turbo-logo--big">
+          <svg preserveAspectRatio="none" viewBox="0 0 221 221" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="Logo-TURBO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Group-4">
+                    <g id="noun_speed_12193" transform="translate(24.000000, 23.000000)" fill-rule="nonzero">
+                        <g id="Group" transform="translate(87.000000, 87.564971) rotate(45.000000) translate(-87.000000, -87.564971) translate(25.500000, 26.064971)">
+                            <path d="M65.171372,60.4986387 C64.846134,59.5287224 64.0843543,58.766955 63.1100858,58.4417223 L28.6175112,46.9443836 C27.4452089,46.5584408 26.1616029,46.8547639 25.2856285,47.7278331 L13.7881036,59.2280628 C12.9901864,60.0259671 12.6663939,61.1809047 12.9236933,62.2736867 C13.1809927,63.3708051 13.9919195,64.2568837 15.0587001,64.6124715 L48.0132604,75.5923287 L58.9961864,108.553583 C59.3561165,109.618901 60.2378729,110.43126 61.3364546,110.688555 C61.5865265,110.749265 61.8337073,110.778175 62.0852247,110.778175 C62.9351801,110.778175 63.7677893,110.439933 64.3821278,109.825604 L75.8868802,98.3282654 C76.755627,97.4551961 77.0591825,96.16872 76.6703424,94.9964366 L65.171372,60.4986387 Z M63.5047079,101.502537 L53.6724017,71.9930864 C53.3471636,71.0260611 52.585384,70.2642937 51.6111154,69.939061 L22.1084146,60.1069139 L28.464288,53.7482525 L59.5093397,64.097881 L69.8634723,95.145321 L63.5047079,101.502537 Z" id="Shape"></path>
+                            <path d="M87.798789,37.869326 C87.473551,36.8978158 86.7117713,36.1359322 85.7447303,35.8106498 L51.2449282,24.3115552 C50.0798534,23.9342276 48.7890199,24.2305961 47.920273,25.0994615 L36.4155206,36.598556 C35.6176034,37.3965822 35.2938109,38.5473591 35.5511103,39.6431994 C35.8084097,40.741931 36.6193365,41.6266992 37.6861171,41.983787 L70.6479049,52.9682125 L81.6308309,85.9272716 C81.9835335,86.9999807 82.8725174,87.8052354 83.9667626,88.0654613 C84.2139435,88.1218436 84.4683519,88.1507576 84.7155327,88.1507576 C85.5698246,88.1507576 86.3995429,87.8196924 87.0167723,87.1980416 L98.5142972,75.6989471 C99.383044,74.8242988 99.6865995,73.5390719 99.2977594,72.3666095 L87.798789,37.869326 Z M86.1335704,78.875149 L76.3012642,49.3684205 C75.9760261,48.4012475 75.2142465,47.6393638 74.2472055,47.3140814 L44.7372771,37.4760957 L51.0960415,31.1208003 L82.1439842,41.4691179 L92.4908893,72.518408 L86.1335704,78.875149 Z" id="Shape"></path>
+                            <path d="M111.136265,14.5391919 C110.811039,13.5648754 110.049288,12.8030582 109.075057,12.4778042 L74.5837973,0.979713621 C73.4187669,0.598082251 72.1250917,0.894424792 71.2520416,1.76610554 L59.754955,13.2685329 C58.9570682,14.0621527 58.6260608,15.2171658 58.8862412,16.3100193 C59.1478672,17.4115462 59.9515358,18.2933459 61.0240576,18.6532937 L93.9773616,29.6367602 L104.959869,62.592942 C105.319785,63.6612207 106.201508,64.4707418 107.302939,64.730945 C107.55011,64.7873223 107.797282,64.8162338 108.04879,64.8162338 C108.898713,64.8162338 109.73129,64.4808608 110.345605,63.863601 L121.842692,52.3655103 C122.717187,51.492384 123.020731,50.2058237 122.633351,49.0334637 L111.136265,14.5391919 Z M109.47111,55.541435 L99.6319508,26.0372825 C99.3067252,25.0658572 98.5449746,24.30404 97.5779705,23.978786 L68.0735033,14.1431048 L74.4320253,7.78691864 L105.475894,18.1386696 L115.822404,49.1852489 L109.47111,55.541435 Z" id="Shape"></path>
+                            <path d="M40.3424932,82.5655985 C39.0719261,81.295065 37.0106876,81.295065 35.7401205,82.5655985 L1.24834385,117.057909 C-0.0222232348,118.328442 -0.0222232348,120.389626 1.24834385,121.66016 C1.88290465,122.294704 2.71694016,122.612698 3.54953019,122.612698 C4.38212022,122.612698 5.21471026,122.294704 5.85071653,121.66016 L40.3424932,87.1606223 C41.6130603,85.8900888 41.6130603,83.8317957 40.3424932,82.5655985 Z" id="Path"></path>
+                            <path d="M11.6871729,92.4827358 L23.1855466,80.9887469 C24.4562369,79.7185411 24.4562369,77.6578889 23.1855466,76.3876831 C21.9148563,75.1174774 19.860646,75.1174774 18.5899557,76.3876831 L7.09158199,87.8816721 C5.82089172,89.1518778 5.82089172,91.2125301 7.09158199,92.4827358 C7.72620433,93.1171161 8.55742948,93.4350288 9.39010025,93.4350288 C10.222771,93.4350288 11.0525506,93.1171161 11.6871729,92.4827358 Z" id="Path"></path>
+                            <path d="M41.9194815,99.7222069 L30.4257232,111.223421 C29.155543,112.489292 29.155543,114.549944 30.4257232,115.81726 C31.0600908,116.45164 31.8909823,116.769553 32.7233189,116.769553 C33.5556554,116.769553 34.3836568,116.45164 35.0194695,115.81726 L46.5204529,104.323271 C47.7906331,103.053065 47.7906331,100.992413 46.5204529,99.7222069 C45.2502727,98.4520012 43.1882167,98.4520012 41.9194815,99.7222069 Z" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
         </div>
+      </div>
+      <div class="col-f-1 col-p">
+        <div class="hero__txt">
+          <h2 class="hero__tl">
+            What is Coveo Turbo?
+          </h2>
+          <ul class="hero__ul">
+            <li class="hero__li">
+              <i class="ionicons ion-arrow-right-b"></i>
+              <span>
+                An accelerator to build custom components based on industry leading practices.
+              </span>
+            </li>
+            <li class="hero__li">
+              <i class="ionicons ion-arrow-right-b"></i>
+              <span>
+                A collection of components to turbocharge implementations.
+              </span>
+            </li>
+            <li class="hero__li">
+              <i class="ionicons ion-arrow-right-b"></i>
+              <span>
+                A means to unify multiple code bases using different stacks with one build process.
+              </span>
+            </li>
+            <li class="hero__li">
+              <i class="ionicons ion-arrow-right-b"></i>
+              <span>
+                An effort to standardize the building methods between Coveo developers within the community.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+    <div class="f-row">
+      <div class="col-f-1 col-p">
+        {{ content }}
+      </div>
+      <div class="component-search-column col-p">
+          <div class="CoveoSearchInterface" id="search">
+              <div class="coveo-search-section">
+                  <div class="CoveoSearchbox" data-placeholder="Search Turbo Components..."></div>
+              </div>
+              <div class="coveo-main-section">
+                  <div class="CoveoAnalytics" data-search-hub="Coveo Turbo Site"></div>
+                  <div class="CoveoTriggers"></div>
+                  <div class="CoveoResultList" layout="list">
+                      <script id="coveo-turbo" class="result-template" type="text/html">
+              <div class="coveo-result-frame">
+                  <div class="coveo-result-row">
+                    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;">
+                      <span class="CoveoIcon" data-value="icon-turbo" data-label-value="Turbo" data-with-label="false"></span>
+                      <div class="CoveoQuickview"></div>
+                    </div>
+                    <div class="coveo-result-cell" style="padding-left:15px;">
+                      <div class="coveo-result-row">
+                        <div class="coveo-result-cell" style="font-size:18px;">
+                          <div class="CoveoFieldValue ResultSource" data-field="@source"></div>
+                        </div>
+                        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+                          <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
+                        </div>
+                      </div>
+                      <div class="coveo-result-row">
+                        <div class="coveo-result-cell" style="font-size:18px;">
+                          <a class="CoveoResultLink" data-title-template="${raw.formattedtitle}"></a>
+                        </div>
+                        <div class="coveo-result-cell external-link">
+                          <a class="CoveoResultLink icon-external-link" data-title-template=" " target="_blank"></a>
+                        </div>
+                      </div>
+                      <div class="coveo-result-row">
+                        <div class="coveo-result-cell">
+                          <span class="CoveoFieldValue" data-field="@turbodescription"></span>
+                        </div>
+                      </div>
+                      <div class="coveo-result-row coveo-turbo" style="margin-top:10px;">
+                        <div class="coveo-result-cell" style="display:grid">
+                          <div class="group">
+                            <span class="CoveoFieldValue" data-field="@turbonpmcommand" data-text-caption="Install Command:"></span>
+                            <span class="CoveoCopyToClipboard" data-field="@turbonpmcommand" data-caption=" "></span>
+                          </div>
+                          <div class="group">
+                            <span class="CoveoFieldValue" data-field="@turbotypescriptimport" data-text-caption="Typescript Import:"></span>
+                            <span class="CoveoCopyToClipboard" data-field="@turbotypescriptimport" data-caption=" "></span>
+                          </div>
+                          <div class="group">
+                            <span class="CoveoFieldValue" data-field="@turbojavascriptimport" data-text-caption="Javascript Import:"></span>
+                            <span class="CoveoCopyToClipboard" data-field="@turbojavascriptimport" data-caption=" "></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </script>
+                  </div>
+              </div>
+              <div class="CoveoResultsPerPage" data-choices-displayed="5, 10, 20" data-initial-choice="5"></div>
+          </div>
+      </div>
     </div>
 </div>

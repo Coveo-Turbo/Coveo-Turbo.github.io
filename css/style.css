@@ -1,11 +1,3 @@
-body {
-    background-color: #dbdbdb;
-}
-
-div.page-content {
-    margin: 5em 3.75% 0 3.75%;
-}
-
 .page-preview {
     background-color: #ffffff;
     margin: 2em;
@@ -49,27 +41,6 @@ blockquote {
     color: #525252;
 }
 
-.column-container {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.column-1 {
-    float: left;
-    width: 60%;
-    min-width: 300px;
-}
-
-.column-2 {
-    float: right;
-    width: 25%;
-    min-width: 250px;
-}
-
-/*
-.column {
- width: 30%;
-}*/
 .icon-turbo {
     background-image: url(https://avatars1.githubusercontent.com/u/65977413);
     background-size: 60px;
@@ -93,4 +64,256 @@ blockquote {
 
 .CoveoSearchbox .CoveoSearchButton {
     background-color: white;
+}
+
+/* RE-STYLE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.f-row {
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+    width: 100%;
+}
+
+.f-space-between {
+    justify-content: space-between;
+} 
+
+.f-align-center {
+    align-items: center;
+}
+
+.col-f-1 {
+    flex: 1;
+}
+
+.col-p {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.component-search-column {
+    flex: 0 0 500px;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: linear-gradient(to right, #f79404, #fab407);
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .upHeader {
+    background: transparent;
+}
+
+header .upHeader .logos h3 {
+    border-left: 1px solid #ffffff;
+}
+
+header .upHeader .logos h3 {
+    border-left: 1px solid #ffffff;
+}
+
+header .upHeader .logos h3 a {
+    color: #fff;
+}
+
+header .bottomHeader {
+    border-top: none;
+    background-color: transparent;
+}
+
+header .CoveoSearchbox .magic-box, header .CoveoSearchButton {
+    border: none;
+}
+
+header .upHeader nav ul.menu a.current, header .upHeader nav ul.menu a:hover {
+    border-bottom: 2px solid #fff;
+    color: #ffffff;
+}
+
+/* NAV HEADER */
+
+header {
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 120px;
+    margin-top: -7px;
+}
+
+.logo__sub-tl {
+    font-size: 22px;
+    color: #fff;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-left: solid 1px #fff;
+    margin-bottom: -7px;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+}
+
+.nav-search {
+    display: flex;
+    padding-left: 15px;
+    /* padding-right: 15px; */
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.nav-search .CoveoSearchInterface {
+    min-height: unset;
+}
+
+.nav-dropdown {
+    position: relative;
+    height: 100%;
+}
+
+.nav-dropdown__ul {
+    position: absolute;
+    display: none;
+}
+
+header .CoveoSearchbox {
+    width: 450px;
+}
+
+header .CoveoSearchbox .magic-box .magic-box-input {
+    height: 50px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+header .nav-dropdown {
+    margin-left: 20px; 
+    color: #fff;
+    font-size: 30px;
+}
+
+.nav-dropdown__toggler {
+    height: 100%;
+    background: #1d2540;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+
+/* TURBO HERO */
+
+.turbo-hero {
+    background: #f7f7f7;
+}
+
+.turbo-logo--big {
+    width: 100%;
+    position: relative;
+    padding-bottom: 60%;
+}
+
+.turbo-logo--big svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.turbo-logo--big svg path {
+    fill: #1d2540;
+}
+
+.hero__txt {
+    height: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.hero__ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.hero__tl {
+    font-size: 40px;
+    margin-bottom: 40px;
+    color: #1d2540;
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.hero__tl:after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 8px;
+    background: #1d2540;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.hero__li {
+    font-size: 22px;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.hero__li .ionicons {
+    margin-right: 20px;
+    font-size: 40px;
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 900px;
+    }   
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }   
+}
+
+@media (min-width: 1360px) {
+    .container {
+        max-width: 1440px;
+    }   
 }
