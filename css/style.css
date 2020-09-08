@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .page-preview {
     background-color: #ffffff;
     margin: 2em;
@@ -322,6 +326,13 @@ header .nav-dropdown {
     display: flex;
     justify-content: center;
     width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: solid 1px #f7f7f7;
+    z-index: 100;
 }
 
 .scroll-nav--a {
@@ -331,9 +342,15 @@ header .nav-dropdown {
     font-size: 14px;
     color: #808490;
     display: inline-block;
+    text-decoration: none!important;
 }
 
-.scroll-nav--a.active {
+/* .scroll-nav--a.active {
+    color: #1d2540;
+    border-bottom: solid 2px #1d2540;
+} */
+
+.scroll-nav--a:hover {
     color: #1d2540;
     border-bottom: solid 2px #1d2540;
 }
