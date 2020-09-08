@@ -81,6 +81,13 @@ blockquote {
     width: 100%;
 }
 
+.col-md-6 {
+    flex: 0 0 50%;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .f-space-between {
     justify-content: space-between;
 } 
@@ -98,10 +105,6 @@ blockquote {
     padding-right: 15px;
 }
 
-.component-search-column {
-    flex: 0 0 500px;
-}
-
 .container {
     margin: 0 auto;
     width: 100%;
@@ -115,15 +118,14 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to right, #f79404, #fab407);
-    padding-top: 25px;
-    padding-bottom: 25px;
+    background-image: linear-gradient(to right, #1d2540, #1d2a54);
 }
 
 header .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 80px;
 }
 
 header .upHeader {
@@ -172,7 +174,7 @@ header {
 }
 
 .logo__sub-tl {
-    font-size: 22px;
+    font-size: 18px;
     color: #fff;
     padding-left: 15px;
     margin-left: 15px;
@@ -185,15 +187,17 @@ header {
 .nav-search {
     display: flex;
     padding-left: 15px;
-    /* padding-right: 15px; */
+    padding-right: 15px;
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
+    padding-right: 0;
 }
 
 .nav-search .CoveoSearchInterface {
     min-height: unset;
+    margin-top: -5px;
 }
 
 .nav-dropdown {
@@ -207,19 +211,36 @@ header {
 }
 
 header .CoveoSearchbox {
-    width: 450px;
+    max-width: 450px;
+    padding-left: 20px;
+    width: 100%;
 }
 
 header .CoveoSearchbox .magic-box .magic-box-input {
-    height: 50px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    color: #3f4f86;
+}
+header .CoveoSearchbox .magic-box .magic-box-input,
+header .CoveoSearchbox .magic-box .magic-box-input input,
+header .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay,
+header .CoveoSearchbox .CoveoSearchButton {
+    height: 38px;
+}
+
+header .CoveoSearchbox .magic-box .magic-box-input input {
+    color: #1d2540;
+}
+
+header .CoveoSearchbox .magic-box .magic-box-input input::placeholder {
+    color: #3f4f86;
 }
 
 header .nav-dropdown {
-    margin-left: 20px; 
+    margin-left: 40px; 
     color: #fff;
     font-size: 30px;
+    height: 80px;
 }
 
 .nav-dropdown__toggler {
@@ -240,10 +261,9 @@ header .nav-dropdown {
     background: #f7f7f7;
 }
 
-.turbo-logo--big {
-    width: 100%;
-    position: relative;
-    padding-bottom: 60%;
+.mini-turbo {
+    width: 100px;
+    margin: 0 auto;
 }
 
 .turbo-logo--big svg {
@@ -258,8 +278,6 @@ header .nav-dropdown {
 
 .hero__txt {
     height: 100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
 }
 
 .hero__ul {
@@ -267,25 +285,21 @@ header .nav-dropdown {
     padding-left: 20px;
 }
 
-.hero__tl {
-    font-size: 40px;
-    margin-bottom: 40px;
+.section-tl {
+    font-size: 35px;
     color: #1d2540;
     font-weight: 900;
     position: relative;
+    text-align: center;
+}
+
+.section-padding {
+    padding-top: 40px;
     padding-bottom: 40px;
 }
 
-.hero__tl:after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 8px;
-    background: #1d2540;
-    border-radius: 4px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.mini-turbo {
+    margin-bottom: 10px;
 }
 
 .hero__li {
@@ -298,6 +312,46 @@ header .nav-dropdown {
 .hero__li .ionicons {
     margin-right: 20px;
     font-size: 40px;
+}
+
+
+/* SCROLL NAV */
+
+.scroll-nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.scroll-nav--a {
+    padding: 10px 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #808490;
+    display: inline-block;
+}
+
+.scroll-nav--a.active {
+    color: #1d2540;
+    border-bottom: solid 2px #1d2540;
+}
+
+
+/* COMPONENT SEARC */
+
+.component-search .CoveoSearchbox .magic-box,
+.component-search .CoveoSearchbox .CoveoSearchButton {
+    border: solid 1px #1d2540;
+}
+
+.component-search .CoveoSearchbox .CoveoSearchButton {
+    background: #1d2540;
+}
+
+.component-search .coveo-search-button-svg {
+    color: #fff;
 }
 
 @media (min-width: 992px) {
@@ -313,7 +367,7 @@ header .nav-dropdown {
 }
 
 @media (min-width: 1360px) {
-    .container {
+    /* .container {
         max-width: 1440px;
-    }   
+    }    */
 }
