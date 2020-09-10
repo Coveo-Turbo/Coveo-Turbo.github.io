@@ -83,6 +83,7 @@ blockquote {
     margin-left: -15px;
     margin-right: -15px;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .col-md-6 {
@@ -132,27 +133,6 @@ header .container {
     height: 80px;
 }
 
-header .upHeader {
-    background: transparent;
-}
-
-header .upHeader .logos h3 {
-    border-left: 1px solid #ffffff;
-}
-
-header .upHeader .logos h3 {
-    border-left: 1px solid #ffffff;
-}
-
-header .upHeader .logos h3 a {
-    color: #fff;
-}
-
-header .bottomHeader {
-    border-top: none;
-    background-color: transparent;
-}
-
 header .CoveoSearchbox .magic-box, header .CoveoSearchButton {
     border: none;
 }
@@ -179,7 +159,7 @@ header {
 
 .logo__sub-tl {
     font-size: 18px;
-    color: #fff;
+    color: #f58003;
     padding-left: 15px;
     margin-left: 15px;
     border-left: solid 1px #fff;
@@ -282,6 +262,8 @@ header .nav-dropdown {
 
 .hero__txt {
     height: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .hero__ul {
@@ -307,7 +289,7 @@ header .nav-dropdown {
 }
 
 .hero__li {
-    font-size: 22px;
+    font-size: 20px;
     display: flex;
     margin-bottom: 20px;
     line-height: 1.4;
@@ -352,8 +334,8 @@ header .nav-dropdown {
 } */
 
 .scroll-nav--a:hover {
-    color: #1d2540;
-    border-bottom: solid 2px #1d2540;
+    color: #f27f04;
+    border-bottom: solid 2px #f27f04;
 }
 
 
@@ -370,6 +352,62 @@ header .nav-dropdown {
 
 .component-search .coveo-search-button-svg {
     color: #fff;
+}
+
+.hero__txt b, strong {
+    font-weight: 500;
+    color: #f27f04;
+}
+
+/* RESULTS TEMPLATE */
+.f-col.col-icon {
+    padding-right: 15px;
+    flex: 0 0 150px;
+}
+
+.f-col {
+    padding: 0 15px;
+    flex: 1;
+}
+
+.col-icon .mini-turbo {
+    background: #f7f7f7;
+}
+
+.CoveoResultLink, a.CoveoResultLink, .CoveoResult a.CoveoResultLink,
+.CoveoResult a:visited, .CoveoResult a:visited:hover,
+.CoveoResultLink:visited, .CoveoResultLink:visited:hover, a.CoveoResultLink:visited, a.CoveoResultLink:visited:hover, .CoveoResult a.CoveoResultLink:visited, .CoveoResult a.CoveoResultLink:visited:hover 
+{
+    color: #f27f04;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    /* font-size: 20px; */
+}
+
+.results-table-row {
+    padding: 5px 10px;
+    border: solid 1px #fff;
+}
+
+.results-table-row .CoveoFieldValue.coveo-with-label{
+    display: flex;
+}
+
+.results-table-row span {
+    color: #1d2540;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.results-table-row .coveo-field-caption {
+    flex: 0 0 150px;
+    color: #1d2540;
+    font-weight: 500;
+}
+
+.results-table {
+    background: #f7f7f7;
 }
 
 @media (min-width: 992px) {
