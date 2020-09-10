@@ -410,6 +410,11 @@ header .nav-dropdown {
     background: #f7f7f7;
 }
 
+.result-description {
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
 @media (min-width: 992px) {
     .container {
         max-width: 900px;

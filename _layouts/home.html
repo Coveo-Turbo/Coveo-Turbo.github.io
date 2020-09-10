@@ -121,15 +121,11 @@ layout: base
                       <div class="coveo-result-cell" style="font-size:18px;">
                         <a class="CoveoResultLink" data-title-template="${raw.formattedtitle}"></a>
                       </div>
-                      <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+                      <div class="coveo-result-cell" style="text-align:right; font-size:12px">
                         <span class="CoveoFieldValue" data-field="@date" data-helper="date"></span>
                       </div>
                     </div>
-                    <div class="coveo-result-row">
-                      <div class="coveo-result-cell">
-                        <span class="CoveoFieldValue" data-field="@firstSentences"></span>
-                      </div>
-                    </div>
+                    <div class="CoveoFieldValue result-description" data-field="@firstSentences"></div>
                     <div class="results-table">
                       <div class="results-table-row">
                         <span class="CoveoFieldValue" data-field="@turbonpmcommand" data-text-caption="Install Command:"></span>
