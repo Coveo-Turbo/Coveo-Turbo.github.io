@@ -19,6 +19,16 @@ p {
 
 h2 {
     font-size: 1.5em;
+    padding: 0.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+    padding: 0.5em;
+}
+
+h4 {
+    font-size: 1.2em;
 }
 
 blockquote {
@@ -26,6 +36,15 @@ blockquote {
     border-left: 10px solid #ccc;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
+}
+
+.page-content {
+    margin: 5em;
+}
+
+table, th, td {
+    border: solid;
+    border-width: 1px;
 }
 
 .page-content > ol, .page-content > ul {
