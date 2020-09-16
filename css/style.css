@@ -208,11 +208,6 @@ header {
     height: 100%;
 }
 
-.nav-dropdown__ul {
-    position: absolute;
-    display: none;
-}
-
 header .CoveoSearchbox {
     max-width: 450px;
     padding-left: 20px;
@@ -246,6 +241,17 @@ header .nav-dropdown {
     height: 80px;
 }
 
+.nav-dropdown__li a {
+    text-transform: none;
+    font-size: 22px;
+    display: block;
+    padding: 25px;
+}
+
+.nav-dropdown__li a:hover {
+    background: #333c5d;
+}
+
 .nav-dropdown__toggler {
     height: 100%;
     background: #1d2540;
@@ -255,6 +261,90 @@ header .nav-dropdown {
     align-items: center;
     justify-content: center;
     color: #fff;
+}
+
+.nav-dropdown__content {
+    width: 50vw;
+    right: 0;
+    top: 80px;
+    padding: 25px;
+    background: #1d2540;
+    z-index: 10;
+    height: 100vh;
+    height: -moz-calc(100vh - 80px);
+    height: -webkit-calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    visibility: hidden;
+    position: fixed;
+    transform: translateX(100%);
+    transition: all 0.6s ease;
+}
+
+.nav-dropdown__bg {
+    display: block;
+    height: 100vh;
+    height: -moz-calc(100vh - 80px);
+    height: -webkit-calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    width: 100vw;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    background: #0000004a;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 3;
+    transition: all 0.5s ease;
+}
+
+.nav-active .nav-dropdown__bg {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-active .nav-dropdown__content {
+    visibility: visible;
+    transform: translateX(0);
+    transition: all 0.6s ease;
+}
+
+.nav-dropdown__content .nav-dropdown__ul, .nav-dropdown__content .nav-tl{
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.nav-active .nav-dropdown__content .nav-dropdown__ul, .nav-active .nav-dropdown__content .nav-tl{
+    transition: all 0.6s ease;
+    opacity: 1;
+}
+
+.nav-tl {
+    font-size: 18px;
+    margin-top: 50px;
+    padding: 0;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.nav-tl__content {
+    padding: 10px;
+    display: inline-block;
+    background: #1d2540;
+    position: relative;
+    z-index: 2;
+    padding-left: 25px;
+}
+
+.nav-tl__line {
+    background: #929292;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
 

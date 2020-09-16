@@ -11,31 +11,6 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
   <script class="coveo-script"
     src="https://static.cloud.coveo.com/searchui/v2.9373/js/CoveoJsSearch.Lazy.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const searchBoxRoot = document.querySelector('#searchBox');
-
-      // The API key is also on source.coveo.com, and was thus already public.
-      // It has limited permissions, and is used here only to suggest queries.
-      // Used for the search box
-      Coveo.SearchEndpoint.configureCloudV2Endpoint(
-        "coveosearch",
-        "xx15d10ab2-cb6c-4c13-addb-aa871471c00e",
-        "https://platform.cloud.coveo.com/rest/search");
-
-      Coveo.initSearchbox(
-        searchBoxRoot,
-        "https://connect.coveo.com/s/global-search/%40uri"
-      );
-
-      // Used for the search component on the home page
-      Coveo.SearchEndpoint.configureCloudV2Endpoint(
-        "coveoturbos27gifbb",
-        "xxa36cccec-fe48-4d18-a920-dbf16b25847a",
-        "https://platform.cloud.coveo.com/rest/search");
-      Coveo.init(document.querySelector('#search'))
-    });
-  </script>
 </head>
 
 <body>
@@ -64,33 +39,60 @@
             <span class="nav-dropdown__toggler">
               <i class="ionicons ion-android-menu"></i>
             </span>
-            <ul class="nav-dropdown__ul">
-              <li class="nav-dropdown__li">
-                <a d="jsCloudAdminV1" target="_blank" href="https://cloud.coveo.com">
-                  Cloud V1 Administration Console
-                </a>
+            <div class="nav-dropdown__bg"></div>
+            <div class="nav-dropdown__content">
+              <ul class="nav-dropdown__ul nav-dropdown__ul--main">
+                <li class="nav-dropdown__li">
+                  <a target="_blank" href="https://cloud.coveo.com">
+                    Search Turbo Components
+                  </a>
                 </li>
                 <li class="nav-dropdown__li">
-                <a d="jsCloudAdminV2" target="_blank" href="https://platform.cloud.coveo.com">
-                  Cloud V2 Administration Console
-                </a>
-              </li>
-              <li class="nav-dropdown__li">
-                <a id="jsSupport" href="https://connect.coveo.com" target="_blank">
-                  Connect
-                </a>
-              </li>
-              <li class="nav-dropdown__li">
-                <a id="jsProductDocs" href="https://docs.coveo.com" target="_blank">
-                  Product docs
-                </a>
-              </li>
-              <li class="nav-dropdown__li">
-                <a id="jsTraining" href="https://academy.coveo.com/" target="_blank">
-                  Academy
-                </a>
-              </li>
-            </ul>
+                  <a target="_blank" href="https://platform.cloud.coveo.com">
+                    Documentation
+                  </a>
+                </li>
+                <li class="nav-dropdown__li">
+                  <a id="jsSupport" href="https://connect.coveo.com" target="_blank">
+                    CLI
+                  </a>
+                </li>
+              </ul>
+
+              <h3 class="nav-tl">
+                <span class="nav-tl__content">
+                  Also See
+                </span>
+                <span class="nav-tl__line"></span>
+              </h3>
+              <ul class="nav-dropdown__ul">
+                <li class="nav-dropdown__li">
+                  <a d="jsCloudAdminV1" target="_blank" href="https://cloud.coveo.com">
+                    Cloud V1 Administration Console
+                  </a>
+                  </li>
+                  <li class="nav-dropdown__li">
+                  <a d="jsCloudAdminV2" target="_blank" href="https://platform.cloud.coveo.com">
+                    Cloud V2 Administration Console
+                  </a>
+                </li>
+                <li class="nav-dropdown__li">
+                  <a id="jsSupport" href="https://connect.coveo.com" target="_blank">
+                    Connect
+                  </a>
+                </li>
+                <li class="nav-dropdown__li">
+                  <a id="jsProductDocs" href="https://docs.coveo.com" target="_blank">
+                    Product docs
+                  </a>
+                </li>
+                <li class="nav-dropdown__li">
+                  <a id="jsTraining" href="https://academy.coveo.com/" target="_blank">
+                    Academy
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -99,5 +101,49 @@
   
   {{ content }}
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchBoxRoot = document.querySelector('#searchBox');
 
+    // The API key is also on source.coveo.com, and was thus already public.
+    // It has limited permissions, and is used here only to suggest queries.
+    // Used for the search box
+    Coveo.SearchEndpoint.configureCloudV2Endpoint(
+      "coveosearch",
+      "xx15d10ab2-cb6c-4c13-addb-aa871471c00e",
+      "https://platform.cloud.coveo.com/rest/search");
+
+    Coveo.initSearchbox(
+      searchBoxRoot,
+      "https://connect.coveo.com/s/global-search/%40uri"
+    );
+
+    // Used for the search component on the home page
+    Coveo.SearchEndpoint.configureCloudV2Endpoint(
+      "coveoturbos27gifbb",
+      "xxa36cccec-fe48-4d18-a920-dbf16b25847a",
+      "https://platform.cloud.coveo.com/rest/search");
+
+    Coveo.init(document.querySelector('#search'));
+
+    const dropdownToggler = document.querySelector('.nav-dropdown__toggler');
+    const dropdownBG = document.querySelector('.nav-dropdown__bg');
+    const navDropdown = document.querySelector('.nav-dropdown');
+
+    dropdownBG.addEventListener('click', (e) => {
+      navDropdown.classList.remove('nav-active');
+    });
+    
+    dropdownToggler.addEventListener('click', (e) => {
+
+      navDropdown.classList.toggle('nav-active');
+
+      if(navDropdown.classList.contains('nav-active')){
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "visible";
+      }
+    })
+  });
+</script>
 </html>
