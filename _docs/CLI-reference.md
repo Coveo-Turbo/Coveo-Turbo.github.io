@@ -3,7 +3,7 @@ layout: doc
 desc: The reference documentation for the CLI tool
 ---
 
-# Getting Started with Coveo Turbo
+# Coveo Turbo CLI Reference
 
 <div class="content-section" markdown="1">
 ## Table of content:
@@ -21,6 +21,7 @@ desc: The reference documentation for the CLI tool
     - [Update a Translation](#update-a-translation)
     - [Create a Readme](#create-a-readme-file)
     - [Create a Docker Environment](#create-a-docker-environment)
+    - [Create a Query Pipeline](#create-a-query-pipeline)
 </div>
 
 <div class="content-section" markdown="1">
@@ -629,4 +630,38 @@ This command creates or overwrites an existing docker-compose.yml file with a ba
 
 
 > To only run the server during the `up` phase, and handle the install and build commands manually, you can remove the `setup` and `build` directives from the `entrypoint` field in the `docker-compose.yml` file.
+</div>
+
+<div class="content-section" markdown="1">
+### Create a Query Pipeline
+​
+This command creates a query pipeline in the Coveo organization. This pipeline has a condition set to the search hub specified in the command.
+​
+| Argument | Command Type | Type | Default | Required | Comments |
+| --- | --- | --- | --- | --- | --- |
+| name | argument | string | none | yes | The name of the pipeline to create in the organization. |
+| search-hub | option | string | none | no | The searchHub to use when referring to the pipeline. By default, the `search-hub` uses the value of `name`. |
+| description | option | string | none | no | Add a description to the pipeline, for reference within the Coveo Platform as the User Note. |
+| without-search-hub | option | boolean | none | no | Opt out of the automatic creation of the searchHub condition on this pipeline. |
+| org-id | option | string | none | yes | The id of the Coveo organization. |
+| token | option | string | none | yes | The token used to authenticate to the organization. |
+| verbosity | option | string | none | no | Adjusts the verbosity of error logging during the run-time. |
+​
+> Example usage:
+>
+> ```bash
+> ./node_modules/.bin/coveops create:pipeline SearchPage
+> ```
+>
+> To use a different searchHub:
+>
+> ```bash
+> ./node_modules/.bin/coveops create:pipeline SearchPage --search-hub SearchPageSearchHub
+> ```
+>
+> To not use a searchHub:
+>
+> ```bash
+> ./node_modules/.bin/coveops create:pipeline SearchPage --without-search-hub
+> ```
 </div>
