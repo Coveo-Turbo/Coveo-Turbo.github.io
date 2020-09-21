@@ -366,7 +366,7 @@ This command creates a blank stylesheet to be used to canvas for your needs. It 
 
 The Coveo component registration allows for two main strategies to load a component once the scripts and markup are present on the page: [Eager and Lazy](https://docs.coveo.com/en/295).
 
-The `@coveops/turbo-core` library contains useful decorators that make it simple to choose the initialization structure without requiring boilerplate code. All of the strategies fallback to `component` if the `LazyInitialization` class isn't present when importing `Coveo.Lazy.js`.
+The `@coveops/turbo-core` library contains useful decorators that make it simple to choose the initialization structure without requiring boilerplate code. All of the strategies fallback to `component` if the `LazyInitialization` class isn't present when importing `Coveo.Lazy.js`
 
 > This feature is currently only available for TypeScript Components.
 
