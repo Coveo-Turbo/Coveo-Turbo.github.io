@@ -13,18 +13,12 @@ html {
     font-size: 1.5em;
 }
 
-p {
-    margin: 1em;
-}
-
 h2 {
     font-size: 1.5em;
-    padding: 0.5em;
 }
 
 h3 {
     font-size: 1.3em;
-    padding: 0.5em;
 }
 
 h4 {
@@ -36,10 +30,6 @@ blockquote {
     border-left: 10px solid #ccc;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
-}
-
-.page-content {
-    margin: 5em;
 }
 
 table, th, td {
@@ -191,11 +181,11 @@ header {
     display: flex;
     padding-left: 15px;
     padding-right: 15px;
-    position: absolute;
+    /* position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
-    padding-right: 0;
+    padding-right: 0; */
 }
 
 .nav-search .CoveoSearchInterface {
@@ -524,6 +514,27 @@ header .nav-dropdown {
     line-height: 1.4;
 }
 
+
+/* DOC PAGE */
+
+
+/* GENERICS */
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.page-tl {
+    padding: 10px 25px;
+    background: #f7f7f7;
+    color: #1d2540;
+}
+
+.page-subtl {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
 @media (min-width: 992px) {
     .container {
         max-width: 900px;
@@ -537,7 +548,7 @@ header .nav-dropdown {
 }
 
 @media (min-width: 1360px) {
-    /* .container {
-        max-width: 1440px;
-    }    */
+    .container {
+        max-width: 1300px;
+    }   
 }
