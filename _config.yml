@@ -29,6 +29,10 @@ collections:
     output: false
   docs:
     output: true
+    order:
+      - Getting-Started.md
+      - Testing-Components.md
+      - CLI-reference.md
 
 # Build settings
 theme: minima
