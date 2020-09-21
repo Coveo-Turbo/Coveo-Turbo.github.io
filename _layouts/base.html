@@ -24,7 +24,6 @@
             Turbo
           </a>
         </div>
-        <h1 class="currentSiteName" style="display: none"><em>Coveo Turbo</em> <span>Menu<i class="arrow"></i></span></h1>
         <div class="col-p nav-search f-space-between f-align-center">
           <div id="searchBox">
             <div class="CoveoSearchbox" type="text" data-enable-omnibox="true" data-inline="false"
@@ -123,8 +122,13 @@
       "xxa36cccec-fe48-4d18-a920-dbf16b25847a",
       "https://platform.cloud.coveo.com/rest/search");
 
-    Coveo.init(document.querySelector('#search'));
-
+    try {
+        Coveo.init(document.querySelector('#search'));
+    }
+    catch(error) {
+      console.log('Error in Coveo search bar init', error);
+    }
+  
     const dropdownToggler = document.querySelector('.nav-dropdown__toggler');
     const dropdownBG = document.querySelector('.nav-dropdown__bg');
     const navDropdown = document.querySelector('.nav-dropdown');

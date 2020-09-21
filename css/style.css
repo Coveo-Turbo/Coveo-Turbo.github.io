@@ -1,5 +1,25 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 html {
     scroll-behavior: smooth;
+}
+
+html, body {
+    font-size: 16px;
 }
 
 .page-preview {
@@ -14,15 +34,15 @@ html {
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 h3 {
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 
 h4 {
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 blockquote {
@@ -80,12 +100,6 @@ table, th, td {
 }
 
 /* RE-STYLE */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .f-row {
     display: flex;
@@ -236,6 +250,7 @@ header .nav-dropdown {
     font-size: 22px;
     display: block;
     padding: 25px;
+    color: #fff;
 }
 
 .nav-dropdown__li a:hover {
@@ -251,6 +266,7 @@ header .nav-dropdown {
     align-items: center;
     justify-content: center;
     color: #fff;
+    cursor: pointer;
 }
 
 .nav-dropdown__content {
@@ -515,8 +531,118 @@ header .nav-dropdown {
 }
 
 
-/* DOC PAGE */
+/* CONTENT PAGES */
 
+.content-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#doc-content h1 {
+    font-size: 2.2rem;
+    padding: 10px 15px;
+    background: #f7f7f7;
+    color: #1d2540;
+    border-left: solid 3px #1d2540;
+    margin-bottom: 40px;
+}
+
+#doc-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#doc-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+#doc-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#doc-content ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+#doc-content ul ul{
+    list-style: circle;
+}
+
+#doc-content li {
+    padding: 2px 0;
+    margin-bottom: 2px;
+}
+
+#doc-content li a{
+    color: #1d2540;
+    font-size: 18px;
+    border-bottom: solid 1px #e2e2e2;
+}
+
+#doc-content li a:hover {
+    color: #f58003;
+}
+
+#doc-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#doc-content p{
+    margin-bottom: 15px;
+}
+
+#doc-content b, #doc-content strong {
+    color: #1d2540;
+    font-weight: bold;
+}
+
+#doc-content code {
+    background: #f7f7f7;
+    padding: 5px 15px;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#doc-content table td, #doc-content table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#doc-content blockquote {
+    background: #f7f7f7;
+    border-left: 3px solid #f58003;
+    padding: 20px;
+    margin: 0;
+}
+
+#doc-content blockquote code{
+    background: #e2e2e2;
+}
+
+#doc-content table code {
+    display: inline;
+    padding: 0;
+    background: none;
+    margin: 0;
+}
+
+#doc-content table tr:nth-child(even){background-color: #f7f7f7;}
+  
+#doc-content table th {
+    padding-top: 10px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1d2540;
+    color: white;
+}
 
 /* GENERICS */
 

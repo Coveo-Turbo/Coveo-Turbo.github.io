@@ -1,10 +1,12 @@
 ---
 layout: doc
-title:  "CLI Reference"
 desc: The reference documentation for the CLI tool
 ---
 
-Table of content:
+# Getting Started with Coveo Turbo
+
+<div class="content-section" markdown="1">
+## Table of content:
 - [Installation](#installation)
 - [Usage](#usage)
     - [Build](#build)
@@ -19,14 +21,18 @@ Table of content:
     - [Update a Translation](#update-a-translation)
     - [Create a Readme](#create-a-readme-file)
     - [Create a Docker Environment](#create-a-docker-environment)
+</div>
 
-# Installation
+<div class="content-section" markdown="1">
+## Installation
 
 To install the CLI, use the following command:
 
 `npm install --save-dev @coveops/cli`
+</div>
 
-# Usage
+<div class="content-section" markdown="1">
+## Usage
 
 Replace the `COMMAND` with the appropriate one from the table below with its corresponding arguments and options.
 
@@ -43,12 +49,14 @@ Alternatively on Windows: `.\node_modules\.bin\coveops CountedTabs COMMAND`
 **Executed via npx:**
 
 `npx @coveops/cli COMMAND`
+</div>
 
+<div class="content-section" markdown="1">
 ## Build
 
 This command uses a standard Webpack configuration to build and bundle the project for distribution.
 
-You can also add the command to your `package.json` scripts to continue using familiar hooks like `npm run build`.
+You can also add the command to your `package.json` scripts to continue using familiar hooks like `npm run build`
 
 | Argument | Command Type | Type | Default | Required | Comments |
 | -------- | ------------ | ---- | ------- | -------- | -------- |
@@ -65,7 +73,10 @@ You can also add the command to your `package.json` scripts to continue using fa
 | watch | option | boolean | none | no | Whether to watch for changes and build after the `watch-timeout`. |
 | watch-timeout | option | number | 1000 | no | The amount of time (in milliseconds) to watch for changes. Increase this value if you change multiple files at a time. |
 
-> Examples:
+
+#### Examples:
+
+> 
 > 
 > Basic use case:
 > 
@@ -91,7 +102,10 @@ You can also add the command to your `package.json` scripts to continue using fa
 > ./node_modules/.bin/coveops build TestComponent --styles-path src/stylesheets
 > ```
 
-### SwapVar
+</div>
+
+<div class="content-section" markdown="1">
+#### SwapVar
 
 Coveo injects custom components into its root object by using a custom utility called `SwapVar`. With Coveo Turbo, this utility is injected into the root index of the code during build time, so no additional effort or integration is necessary in a project.
 
@@ -106,8 +120,10 @@ Without the `SwapVar` utility, achieved by using the `disable-swapvar` option in
 ```javascript
 CoveoTestComponent
 ```
+</div>
 
-## Serve
+<div class="content-section" markdown="1">
+### Serve
 
 This command starts a Node server designed to:
 
@@ -155,8 +171,10 @@ Some of the arguments have a corresponding environment variable that can also be
 | search-hub | COVEO_SEARCH_HUB |
 | search-url | COVEO_SEARCH_URL |
 | name | COVEO_SANDBOX_NAME |
+</div>
 
-### Compiled Component
+<div class="content-section" markdown="1">
+#### Compiled Component
 
 The compiled component has its resources served at the following endpoints.
 
@@ -165,7 +183,10 @@ The compiled component has its resources served at the following endpoints.
 - `./component.js`
 - `./component.css`
 
-### Installed Components
+</div>
+
+<div class="content-section" markdown="1">
+#### Installed Components
 
 The installed components have their resources served at the following endpoints.
 
@@ -182,8 +203,10 @@ For example, importing a component installed from `@coveops/test-component` will
 - `components/test-component.css`
 
 > Alternatively, these installed components can be bundled into the library via the corresponding `index` file in the `src` before being built.
+</div>
 
-### Injected Parameters
+<div class="content-section" markdown="1">
+#### Injected Parameters
 
 The serve command generates a JavaScript snippet that is injected into the sandbox page by importing the `/config.js` file, which contains some of the information that was passed through environment variables or CLI arguments in a global `demoConfig` variable. This allows a sandbox to remain decoupled from the test settings to allow portability between environments where component-level dependencies permit.
 
@@ -197,7 +220,10 @@ The following information is passed in the `demoConfig` object and is available 
 | searchHub | search-hub | COVEO_SEARCH_HUB | `"null"` |
 | searchUrl | search-url | COVEO_SEARCH_URL | `localhost:8080/` |
 
-## Create a Project
+</div>
+
+<div class="content-section" markdown="1">
+### Create a Project
 
 This command adds the necessary files to kick-start a project to create a shareable component and optionally the component itself.
 
@@ -259,7 +285,10 @@ This command adds the necessary files to kick-start a project to create a sharea
 > ./node_modules/.bin/coveops create:project TestComponent --with-sandbox
 > ```
 
-## Create a Component
+</div>
+
+<div class="content-section" markdown="1">
+### Create a Component
 
 This command creates a blank component to be used to canvas for your needs. It is currently available as `vanilla` and `typescript` types.
 
@@ -298,7 +327,10 @@ This command creates a blank component to be used to canvas for your needs. It i
 > ./node_modules/.bin/coveops create:component TestComponent --with-styles
 > ```
 
-## Create a Stylesheet
+</div>
+
+<div class="content-section" markdown="1">
+### Create a Stylesheet
 
 This command creates a blank stylesheet to be used to canvas for your needs. It is currently available as `sass` and `vanilla` types.
 
@@ -327,7 +359,10 @@ This command creates a blank stylesheet to be used to canvas for your needs. It 
 > ./node_modules/.bin/coveops create:stylesheet TestComponent --template vanilla
 > ```
 
-### Component Initialization
+</div>
+
+<div class="content-section" markdown="1">
+#### Component Initialization
 
 The Coveo component registration allows for two main strategies to load a component once the scripts and markup are present on the page: [Eager and Lazy](https://docs.coveo.com/en/295).
 
@@ -338,8 +373,10 @@ The `@coveops/turbo-core` library contains useful decorators that make it simple
 ```bash
 ./node_modules/.bin/coveops create:component TestComponent --init-strategy component
 ```
+</div>
 
-## Create a Sandbox
+<div class="content-section" markdown="1">
+### Create a Sandbox
 
 This command creates a folder with a generated search page to be used for basic debugging.
 
@@ -373,7 +410,10 @@ This command creates a folder with a generated search page to be used for basic 
 > ./node_modules/.bin/coveops create:sandbox --path test
 > ```
 
-## Deploy a Sandbox to the Coveo Platform
+</div>
+
+<div class="content-section" markdown="1">
+### Deploy a Sandbox to the Coveo Platform
 
 This command creates a new page and deploys the specified sandbox and its minified JavaScript and CSS there.
 
@@ -411,7 +451,10 @@ Some of the arguments have a corresponding environment variable that can be used
 | token | COVEO_TOKEN |
 | name | COVEO_SANDBOX_NAME |
 
-## Create Locales
+</div>
+
+<div class="content-section" markdown="1">
+### Create Locales
 
 This command creates and scaffolds standardized locale dictionaries for the project.
 
@@ -441,7 +484,10 @@ This command creates and scaffolds standardized locale dictionaries for the proj
 > ./node_modules/.bin/coveops create:locales en fr --type yaml
 > ```
 
-## Create a Translation
+</div>
+
+<div class="content-section" markdown="1">
+### Create a Translation
 
 This command creates all the necessary translation entries or empty placeholders for a given word.
 
@@ -492,7 +538,10 @@ This operation does not replace values that already exist. To update those, use 
 >     CoveoLocalizationManager(LOCALES);
 >     ```
 
-## Update a Translation
+</div>
+
+<div class="content-section" markdown="1">
+### Update a Translation
 
 This command updates the translation entries for a given word, only for the locales specified in the options.
 
@@ -528,7 +577,10 @@ This command updates the translation entries for a given word, only for the loca
 > ./node_modules/.bin/coveops update:translation Word --type yaml --en Word --fr Mot
 > ```
 
-## Create a README file
+</div>
+
+<div class="content-section" markdown="1">
+### Create a README file
 
 This command creates or overwrites an existing README.md file with a standard template that uses contextual information provided to it.
 
@@ -546,7 +598,10 @@ This command creates or overwrites an existing README.md file with a standard te
 > ./node_modules/.bin/coveops create:readme TestComponent --description "This is a sample description"
 > ```
 
-## Create a Docker Environment
+</div>
+
+<div class="content-section" markdown="1">
+### Create a Docker Environment
 
 This command creates or overwrites an existing docker-compose.yml file with a basic compose setup that includes a server running NodeJS v12 and uses the bundled Makefile to install, build, and serve the project with the configured environment variables.
 
@@ -574,3 +629,4 @@ This command creates or overwrites an existing docker-compose.yml file with a ba
 
 
 > To only run the server during the `up` phase, and handle the install and build commands manually, you can remove the `setup` and `build` directives from the `entrypoint` field in the `docker-compose.yml` file.
+</div>
