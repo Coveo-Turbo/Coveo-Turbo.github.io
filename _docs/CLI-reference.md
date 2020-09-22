@@ -245,7 +245,9 @@ This command adds the necessary files to kick-start a project to create a sharea
 | description | option | string | none | no | The description of the component. This updates the description on the README, as well as set the description field in the `package.json` file. |
 | package-name | option | string | none | no | The name of the package that houses the component. By default, the param-case version of the `name` will be added under the `@coveops` scope. For example, setting the name as `TestComponent` yields `@coveops/test-component`. This option is meant to override the default behavior. |
 | with-docker | option | boolean | none | no | Adds a `docker-compose.yml` file containing a NodeJS v12 environment. For more details, see [`Create a Docker Environment`](#create-a-docker-environment) section. |
-| with-locales | option | array | none | no | **[CLI Version 0.12.0+]** Adds the specified locales used for translations and sets up localization in the project. |
+| setup-locales | option | array | none | no | **[CLI Version 0.12.0+]** Adds the specified locales used for translations and sets up localization in the project. |
+| locale-type | option | string | `json` | no | **[CLI Version 0.12.0+]** The filetype to use when managing translations for the locale. The following formats are supported: `json|yaml|js` |
+| default-locale | option | string | `en` | no | **[CLI Version 0.12.0+]** The default locale to use as the base for the dictionary. |
 | verbosity | option | string | none | no | Adjusts the verbosity of error logging during at run-time. |
 
 > Example usage:
@@ -286,6 +288,12 @@ This command adds the necessary files to kick-start a project to create a sharea
 >
 > ```bash
 > ./node_modules/.bin/coveops create:project TestComponent --with-sandbox
+> ```
+>
+> To setup locales at the same time:
+>
+> ```bash
+> ./node_modules/.bin/coveops create:project TestComponent --setup-locales fr es-es
 > ```
 
 </div>
@@ -468,11 +476,21 @@ This command creates and scaffolds standardized locale dictionaries for the proj
 | locales | argument | string[] | [] | no | An array of the list of locales to create to use for the translation dictionaries. |
 | type | option | string | `json` | no | The filetype to use when managing translations for the locale. The following formats are supported: `json|yaml|js` |
 | default | option | string | `en` | no | The default locale to use as the base for the dictionary. |
+| setup | option | boolean |  | no | **[CLI Version 0.12.0+]** Will install the `@coveops/localization-manager` component and update each page's markup to include the necessary code snippets. |
+| component-template | option | string | `typescript` | no | **[CLI Version 0.12.0+]** The template of component to generate. The available options are: [`typescript`, `vanilla`] |
+| component-path | option | string | `src` | no | **[CLI Version 0.12.0+]** The path where the source code of the component is generated. |
+| sandbox-path | option | string | `sandbox` | no | **[CLI Version 0.12.0+]** The path where the sandbox is generated. |
 
 > Example usage:
 >
 > ```bash
 > ./node_modules/.bin/coveops create:locales fr es
+> ```
+>
+> To also set up the `LocalizationManager`:
+>
+> ```bash
+> ./node_modules/.bin/coveops create:locales fr es-es --setup
 > ```
 >
 > To use a different default locale as a base, you can specify it as follows:
