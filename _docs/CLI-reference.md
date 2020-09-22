@@ -244,6 +244,7 @@ This command adds the necessary files to kick-start a project to create a sharea
 | description | option | string | none | no | The description of the component. This updates the description on the README, as well as set the description field in the `package.json` file. |
 | package-name | option | string | none | no | The name of the package that houses the component. By default, the param-case version of the `name` will be added under the `@coveops` scope. For example, setting the name as `TestComponent` yields `@coveops/test-component`. This option is meant to override the default behavior. |
 | with-docker | option | boolean | none | no | Adds a `docker-compose.yml` file containing a NodeJS v12 environment. For more details, see [`Create a Docker Environment`](#create-a-docker-environment) section. |
+| with-locales | option | array | none | no | **[CLI Version 0.12.0+]** Adds the specified locales used for translations and sets up localization in the project. |
 | verbosity | option | string | none | no | Adjusts the verbosity of error logging during at run-time. |
 
 > Example usage:
@@ -634,9 +635,11 @@ This command creates or overwrites an existing docker-compose.yml file with a ba
 
 <div class="content-section" markdown="1">
 ### Create a Query Pipeline
-​
+
+**[CLI Version 0.12.0+]**
+
 This command creates a query pipeline in the Coveo organization. This pipeline has a condition set to the search hub specified in the command.
-​
+
 | Argument | Command Type | Type | Default | Required | Comments |
 | --- | --- | --- | --- | --- | --- |
 | name | argument | string | none | yes | The name of the pipeline to create in the organization. |
@@ -646,7 +649,7 @@ This command creates a query pipeline in the Coveo organization. This pipeline h
 | org-id | option | string | none | yes | The id of the Coveo organization. |
 | token | option | string | none | yes | The token used to authenticate to the organization. |
 | verbosity | option | string | none | no | Adjusts the verbosity of error logging during the run-time. |
-​
+
 > Example usage:
 >
 > ```bash
