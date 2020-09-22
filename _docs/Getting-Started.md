@@ -12,13 +12,11 @@ This article explains how to get started using Coveo Turbo to create, modify, an
 
 > For the full reference of the Coveo Turbo CLI, see [CLI Reference]({{ site.baseurl }}/docs/CLI-Reference).
 
-## Install Coveo Turbo Prerequisites
+## Install Prerequisites
 
 To install Coveo Turbo, you need a Node environment with npm. You can download and install both on the [node.js website](https://nodejs.org/en/).
 
 > Coveo Turbo requires at least version 12 of Node.js. While using previous versions may work for certain commands, it's possible that other commands will not work properly.
-
-Once you have installed Node.js, you can create a project and our CLI will take care of all the semantics for you.
 
 ## Creating a New Project
 
@@ -39,7 +37,7 @@ This command does the following things:
 - Create a basic Coveo search page, where you can test your component.
 - Create and fill a readme.md file with basic usage information, to help you have basic usage documentation available for each component.
 
-> The page is not automatically connected to a Coveo Cloud organization; this can be added when serving the component.
+> The search page is not automatically connected to a Coveo Cloud organization; this can be added when serving the component.
 
 ## Modifying a Component
 
@@ -57,7 +55,7 @@ You can also change the styling of the component by changing the `src\stylesheet
 
 Once you have modified your component and are ready to test it, you need to run the build command, so the code can be built.
 
-To do so, run the following command, provided by the Makefile generated with the project:
+To do so, run the following command, provided by the Makefile generated with the project. Remember to replace TestComponent with the name of your component.
 
 On Unix:
 ```
