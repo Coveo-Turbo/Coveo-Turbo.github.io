@@ -13,9 +13,9 @@ title: Coveo Turbo
     <a class="scroll-nav--a" href="#documentation">
       Documentation
     </a>
-    <a class="scroll-nav--a" href="#blog">
+    <!-- <a class="scroll-nav--a" href="#blog">
       Blog
-    </a>
+    </a> -->
   </li>
 </ul>
 
@@ -174,39 +174,43 @@ title: Coveo Turbo
   </div>
 </section>
 
-<section id="documentation">
-  <h2 class="section-tl">
-    Documentation
-  </h2>
-  <div class="docs-list">
-    {% for doc in site.docs %}
-    <div class="page-preview doc-preview">
-      <a class="link-title" href="{{ doc.url }}">{{ doc.title }}</a>
-      <p class="doc-description">
-        {{ doc.desc }}
-      </p>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-<section id="blog">
-  <h2 class="section-tl">
-    Blog
-  </h2>
-  <div class="posts-list">
-    {% for post in site.posts %}
-    <div class="page-preview post-preview">
-      <a class="link-title" href="{{ post.url | absolute_url }}">{{ post.title }}</a>
-
-      <p class="post-meta">
-        Posted on {{ post.date | date: "%B %-d, %Y" }}
-      </p>
-
-      <div class="post-entry">
-        {{ post.excerpt }}
-        <a href="{{ post.url | absolute_url }}" class="post-read-more">[Read&nbsp;More]</a>
+<section class="section-padding bg-dark" id="documentation">
+  <div class="container">
+    <h2 class="section-tl">
+      Documentation
+    </h2>
+    <div class="docs-list">
+      {% for doc in site.docs %}
+      <div class="col-doc">
+        <a href="{{ doc.url }}" class="doc-card">
+          <h4 class="link-title">{{ doc.title }}</h4>
+          <p class="doc-description">
+            {{ doc.desc }}
+          </p>
+        </a>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
+  </section>
+  <section id="blog" style="display: none;">
+    <h2 class="section-tl">
+      Blog
+    </h2>
+    <div class="posts-list">
+      {% for post in site.posts %}
+      <div class="page-preview post-preview">
+        <a class="link-title" href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+  
+        <p class="post-meta">
+          Posted on {{ post.date | date: "%B %-d, %Y" }}
+        </p>
+  
+        <div class="post-entry">
+          {{ post.excerpt }}
+          <a href="{{ post.url | absolute_url }}" class="post-read-more">[Read&nbsp;More]</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>

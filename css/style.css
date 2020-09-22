@@ -22,11 +22,40 @@ html, body {
     font-size: 17px;
 }
 
-.page-preview {
-    background-color: #ffffff;
-    margin: 2em;
-    padding: 2em;
+.col-doc {
+    padding: 0 15px;
+    flex: 0 0 33.333%;
+    margin-bottom: 20px;
+}
+
+.col-doc:nth-child(3n+2) {
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+}
+
+.doc-card {
+    color: #fff;
     border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    display: block;
+    height: 100%;
+}
+
+.doc-card:hover .link-title{
+    text-decoration: underline;
+}
+
+.doc-card:hover .doc-description{
+    color: #fff;
+}
+
+.doc-card .link-title {
+    height: 60px;
+    margin-bottom: 10px;
+}
+.doc-card .doc-description {
+    color:#9298ad;
 }
 
 .link-title {
@@ -97,6 +126,10 @@ table, th, td {
 
 .CoveoSearchbox .CoveoSearchButton {
     background-color: white;
+}
+
+#search .CoveoResultsPerPage {
+    float: none;
 }
 
 /* RE-STYLE */
@@ -663,6 +696,10 @@ header .nav-dropdown {
     color: white;
 }
 
+.docs-list {
+    display: flex;
+}
+
 /* GENERICS */
 
 .mb-40 {
@@ -678,6 +715,15 @@ header .nav-dropdown {
 .page-subtl {
     font-size: 24px;
     margin-bottom: 15px;
+}
+
+.bg-dark {
+    background: #1d2540;
+}
+
+.bg-dark .section-tl {
+    color: #fff;
+    margin-bottom: 30px;
 }
 
 @media (min-width: 992px) {
