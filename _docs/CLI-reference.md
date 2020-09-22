@@ -172,6 +172,7 @@ Some of the arguments have a corresponding environment variable that can also be
 | search-hub | COVEO_SEARCH_HUB |
 | search-url | COVEO_SEARCH_URL |
 | name | COVEO_SANDBOX_NAME |
+
 </div>
 
 <div class="content-section" markdown="1">
