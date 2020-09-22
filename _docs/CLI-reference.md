@@ -14,8 +14,8 @@ desc: The reference documentation for the CLI tool
     - [Create a Project](#create-a-project)
     - [Create a Component](#create-a-component)
     - [Create a Stylesheet](#create-a-stylesheet)
-    - [Create a Sandbox](#create-a-sandbox)
-    - [Deploy a Sandbox](#deploy-a-sandbox-to-the-coveo-platform)
+    - [Create a Page](#create-a-page)
+    - [Deploy a Page](#deploy-a-page-to-the-coveo-platform)
     - [Create Locales](#create-locales)
     - [Create a Translation](#create-a-translation)
     - [Update a Translation](#update-a-translation)
@@ -130,7 +130,7 @@ This command starts a Node server designed to:
 
 - Serve the compiled distributable as a static resource that can be loaded onto the page.
 - Serve installed components in the `node_modules` folder under the @coveops scope as static resources that can be loaded onto the page.
-- Serve all HTML pages in the sandbox folder.
+- Serve all HTML pages in the pages folder.
 - Pass parameters from the environment or CLI arguments to the running instance to be used in the application via the `demoConfig` variable declared in `/config.js` when the server starts.
 
 > If no org-id or token are used, then a sample Coveo organization with some already indexed content is used.
@@ -138,7 +138,7 @@ This command starts a Node server designed to:
 | Argument | Command Type | Type | Default | Required | Comments |
 | --- | --- | --- | --- | --- | --- |
 | port | option | number | 8080 | no | The port number where the site is generated. |
-| path | option | string | `sandbox` | no | The path to the dedicated sandbox folder used for testing. |
+| path | option | string | `pages` | no | The path to the dedicated pages folder used for testing. |
 | org-id | option | string | none | no | The id of the Coveo Cloud organization to use. |
 | token | option | string | none | no | The token used to authenticate to the organization. |
 | rest-uri | option | string | `https://platform.cloud.coveo.com/rest/search` | no | The uri used by the Coveo JavaScript Search Framework to access the REST API. |
@@ -165,13 +165,13 @@ Some of the arguments have a corresponding environment variable that can also be
 | Argument | Environment Variable |
 | --- | --- |
 | port | SERVER_PORT |
-| path | COVEO_SANDBOX_PATH |
+| path | COVEO_PAGE_PATH |
 | org-id | COVEO_ORG_ID |
 | token | COVEO_TOKEN |
 | rest-uri | COVEO_REST_URI |
 | search-hub | COVEO_SEARCH_HUB |
 | search-url | COVEO_SEARCH_URL |
-| name | COVEO_SANDBOX_NAME |
+| name | COVEO_PAGE_NAME |
 
 </div>
 
@@ -210,7 +210,7 @@ For example, importing a component installed from `@coveops/test-component` will
 <div class="content-section" markdown="1">
 #### Injected Parameters
 
-The serve command generates a JavaScript snippet that is injected into the sandbox page by importing the `/config.js` file, which contains some of the information that was passed through environment variables or CLI arguments in a global `demoConfig` variable. This allows a sandbox to remain decoupled from the test settings to allow portability between environments where component-level dependencies permit.
+The serve command generates a JavaScript snippet that is injected into the page by importing the `/config.js` file, which contains some of the information that was passed through environment variables or CLI arguments in a global `demoConfig` variable. This allows a page to remain decoupled from the test settings to allow portability between environments where component-level dependencies permit.
 
 The following information is passed in the `demoConfig` object and is available to use within the application at runtime:
 
@@ -240,8 +240,10 @@ This command adds the necessary files to kick-start a project to create a sharea
 | with-styles | option | boolean | `false` | no | Whether to create the stylesheet alongside the component. This option requires the `create-component` flag. |
 | styles-path | option | string | `src/stylesheets` | no | The path where the source code of the stylesheet is generated. |
 | styles-template | option | string | `sass` | no | The template of component to generate. The available options are: [`sass`, `vanilla`] |
-| with-sandbox | option | boolean | `false` | no | Whether to create a sandbox in which to test your component. |
-| sandbox-path | option | string | `sandbox` | no | The path where the sandbox is generated. |
+| with-sandbox | option | boolean | `false` | no | **[Deprecated]** Whether to create a sandbox in which to test your component. |
+| sandbox-path | option | string | `pages` | no | **[Deprecated]** The path where the sandbox is generated. |
+| with-page | option | boolean | `false` | no | Whether to create a page in which to test your component. |
+| page-path | option | string | `pages` | no | The path where the page is generated. |
 | description | option | string | none | no | The description of the component. This updates the description on the README, as well as set the description field in the `package.json` file. |
 | package-name | option | string | none | no | The name of the package that houses the component. By default, the param-case version of the `name` will be added under the `@coveops` scope. For example, setting the name as `TestComponent` yields `@coveops/test-component`. This option is meant to override the default behavior. |
 | with-docker | option | boolean | none | no | Adds a `docker-compose.yml` file containing a NodeJS v12 environment. For more details, see [`Create a Docker Environment`](#create-a-docker-environment) section. |
@@ -255,7 +257,7 @@ This command adds the necessary files to kick-start a project to create a sharea
 > To quick-start a new project:
 >
 > ```bash
-> npx @coveops/cli create:project TestComponent --create-component --with-styles --with-sandbox
+> npx @coveops/cli create:project TestComponent --create-component --with-styles --with-page
 > ```
 >
 > To use in a project where `@coveops/cli` is installed:
@@ -284,10 +286,10 @@ This command adds the necessary files to kick-start a project to create a sharea
 > ./node_modules/.bin/coveops create:project TestComponent --create-component --with-styles
 > ```
 >
-> To create a sandbox at the same time:
+> To create a page at the same time:
 >
 > ```bash
-> ./node_modules/.bin/coveops create:project TestComponent --with-sandbox
+> ./node_modules/.bin/coveops create:project TestComponent --with-page
 > ```
 >
 > To setup locales at the same time:
@@ -387,20 +389,20 @@ The `@coveops/turbo-core` library contains useful decorators that make it simple
 </div>
 
 <div class="content-section" markdown="1">
-### Create a Sandbox
+### Create a Page
 
 This command creates a folder with a generated search page to be used for basic debugging.
 
 | Argument | Command Type | Type | Default | Required | Comments |
 | --- | --- | --- | --- | --- | --- |
-| name | argument | string | `index` | no | The name of the sandbox page to be generated. The page is available at the path of the local url. |
-| path | option | string | `sandbox` | no | The path where the sandbox code is generated. |
+| name | argument | string | `index` | no | The name of the page to be generated. The page is available at the path of the local url. |
+| path | option | string | `pages` | no | The path where the page code is generated. |
 | verbosity | option | string | none | no | Adjusts the verbosity of error logging during the run-time. |
 
 > Example usage:
 >
 > ```bash
-> ./node_modules/.bin/coveops create:sandbox
+> ./node_modules/.bin/coveops create:page
 > ```
 >
 > Note: once served, the page is available at localhost:<PORT>/index.html
@@ -408,33 +410,33 @@ This command creates a folder with a generated search page to be used for basic 
 > To add another page
 >
 > ```bash
-> ./node_modules/.bin/coveops create:sandbox knowledge
+> ./node_modules/.bin/coveops create:page knowledge
 > ```
 >
 > Note: once served, the page is available at localhost:<PORT>/knowledge.html
 >
 > To use a different path
 >
-> Note: changing the path of the sandbox requires using the same path when serving it.
+> Note: changing the path of the page requires using the same path when serving it.
 >
 > ```bash
-> ./node_modules/.bin/coveops create:sandbox --path test
+> ./node_modules/.bin/coveops create:page --path test
 > ```
 
 </div>
 
 <div class="content-section" markdown="1">
-### Deploy a Sandbox to the Coveo Platform
+### Deploy a Page to the Coveo Platform
 
-This command creates a new page and deploys the specified sandbox and its minified JavaScript and CSS there.
+This command creates a new page and deploys the specified page and its minified JavaScript and CSS there.
 
 > This feature requires the project to already be built. It only deploys the compiled code.
 
 | Argument | Command Type | Type | Default | Required | Comments |
 | --- | --- | --- | --- | --- | --- |
-| name | argument | string | `index` | no | The name of the sandbox page to be generated. The page is available at the path of the local URL. |
+| name | argument | string | `index` | no | The name of the page to be generated. The page is available at the path of the local URL. |
 | page-name | argument | string | `index` | no | The name of the page to be created on the Coveo Platform. The page is available within the Search Pages section of the Coveo Platform. |
-| path | option | string | `sandbox` | no | The path where the sandbox code is generated. |
+| path | option | string | `pages` | no | The path where the page code is generated. |
 | org-id | option | string | none | yes | The ID of the Coveo Cloud organization. |
 | token | option | string | none | yes | The token used to authenticate to the organization. |
 | verbosity | option | string | none | no | Adjusts the verbosity of error logging during the run-time. |
@@ -445,22 +447,22 @@ This command creates a new page and deploys the specified sandbox and its minifi
 > ./node_modules/.bin/coveops deploy
 > ```
 >
-> To deploy a specific sandbox to a specific Search page in Coveo:
+> To deploy a specific page to a specific Search page in Coveo:
 >
 > ```bash
 > ./node_modules/.bin/coveops deploy index page
 > ```
 
-By default, creating a sandbox creates an HTML page called `index`. The page in the Coveo Platform can be named arbitrarily and differently from the sandbox.
+By default, creating a page creates an HTML page called `index`. The page in the Coveo Platform can be named arbitrarily and differently.
 
 Some of the arguments have a corresponding environment variable that can be used with the deploy command.
 
 | Argument | Environment Variable |
 | --- | --- |
-| path | COVEO_SANDBOX_PATH |
+| path | COVEO_PAGE_PATH |
 | org-id | COVEO_ORG_ID |
 | token | COVEO_TOKEN |
-| name | COVEO_SANDBOX_NAME |
+| name | COVEO_PAGE_NAME |
 
 </div>
 
@@ -479,7 +481,7 @@ This command creates and scaffolds standardized locale dictionaries for the proj
 | setup | option | boolean |  | no | **[CLI Version 0.12.0+]** Installs the `@coveops/localization-manager` component and updates the markup of each page to include the necessary code snippets. |
 | component-template | option | string | `typescript` | no | **[CLI Version 0.12.0+]** The component template to generate. The available options are: [`typescript`, `vanilla`] |
 | component-path | option | string | `src` | no | **[CLI Version 0.12.0+]** The path where the source code of the component is generated. |
-| sandbox-path | option | string | `sandbox` | no | **[CLI Version 0.12.0+]** The path where the sandbox is generated. |
+| page-path | option | string | `pages` | no | **[CLI Version 0.13.0+]** The path where the page is generated. |
 
 > Example usage:
 >
