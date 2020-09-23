@@ -12,36 +12,32 @@ This article explains how to get started using Coveo Turbo to create, modify, an
 
 > For the full reference of the Coveo Turbo CLI, see [CLI Reference]({{ site.baseurl }}/docs/CLI-Reference).
 
-## Install Coveo Turbo
+## Install Prerequisites
 
 To install Coveo Turbo, you need a Node environment with npm. You can download and install both on the [node.js website](https://nodejs.org/en/).
 
 > Coveo Turbo requires at least version 12 of Node.js. While using previous versions may work for certain commands, it's possible that other commands will not work properly.
 
-Once you have installed Node.js, you can run the following command to install and prepare the Coveo Turbo CLI:
-
-```
-npm install --save-dev @coveops/cli
-```
-
 ## Creating a New Project
 
-Once the Coveo Turbo CLI is installed, you can create a new project using the following command:
+You can create a new project using the following command:
 
 ```
-npx @coveops/cli create:project TestComponent --create-component --with-styles --with-sandbox
+npx @coveops/cli create:project TestComponent --create-component --with-styles --with-page
 ```
 > Remember to change `TestComponent` with the name of your component.
 
 > If you want to use JavaScript instead of TypeScript, you should add `--template vanilla` to the command. Similarly, to use pure CSS instead of Sass, add `--styles-template vanilla` to the command.
 
 This command does the following things:
+- Initializes a package.json file with all the necessary configuration and scripts.
+- Installs all dependencies needed by the CLI and the resulting project.
 - Create a component class with the appropriate template.
 - Create associated stylesheets to help style your component.
-- Create a sandbox environment that contains a basic Coveo search page, where you can test your component.
+- Create a basic Coveo search page, where you can test your component.
 - Create and fill a readme.md file with basic usage information, to help you have basic usage documentation available for each component.
 
-> The sandbox environment is not automatically connected to a Coveo Cloud organization; this can be added when serving the component.
+> The search page is not automatically connected to a Coveo Cloud organization; this can be added when serving the component.
 
 ## Modifying a Component
 
@@ -59,17 +55,31 @@ You can also change the styling of the component by changing the `src\stylesheet
 
 Once you have modified your component and are ready to test it, you need to run the build command, so the code can be built.
 
-To do so, run the following command, replacing `TestComponent` with the name of your component:
+To do so, run the following command, provided by the Makefile generated with the project. Remember to replace TestComponent with the name of your component.
 
+On Unix:
 ```
-coveops build TestComponent
+./node_modules/.bin/coveops build TestComponent
+```
+
+On Windows:
+```
+.\node_modules\.bin\coveops build TestComponent
 ```
 
 > For a full list of all build options, see [CLI Reference - Build]({{ site.baseurl }}/docs/CLI-Reference#build).
 
 > You should consider enabling watch on your builds, so you don't have to manually run the build command every time you make changes. The command would look like this:
+>
+> On Unix:
 > ```
-> coveops build TestComponent --watch
+> ./node_modules/.bin/coveops build TestComponent --watch
+> ```
+>
+> On Windows:
+>
+> ```
+> .\node_modules\.bin\coveops build TestComponent --watch
 > ```
 >
 > Note that the watch option does not serve the component.
@@ -82,8 +92,14 @@ During development, you're likely to want to see your component in action. By se
 
 To serve your component, enter the following command:
 
+On Unix:
 ```
-coveops serve org-id yourorgid token "your-token"
+./node_modules/.bin/coveops serve --org-id yourorgid --token "your-token"
+```
+
+On Windows:
+```
+.\node_modules\.bin\coveops serve --org-id yourorgid token --"your-token"
 ```
 
 > Remember to change `yourorgid` with the id of your organization, and `your-token` with a valid search token or API key. For more information on how to get these values, see [Managing Coveo Organization Settings and Limits](https://docs.coveo.com/en/1562/cloud-v2-administrators/managing-coveo-organization-settings-and-limits#organization-tab) and [Adding and Managing API Keys](https://docs.coveo.com/en/1718/cloud-v2-administrators/adding-and-managing-api-keys).
