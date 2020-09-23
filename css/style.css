@@ -637,7 +637,7 @@ header .nav-dropdown {
     margin-bottom: 15px;
 }
 
-#doc-content p code {
+#doc-content p code, #doc-content li code {
     display: inline;
     padding: 0 5px;
     background: none;
@@ -675,7 +675,7 @@ header .nav-dropdown {
     background: #e2e2e2;
 }
 
-#doc-content blockquote code p{
+#doc-content blockquote code p {
     margin-bottom: 0;
 }
 
