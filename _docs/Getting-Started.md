@@ -10,7 +10,7 @@ This article explains how to get started using Coveo Turbo to create, modify, an
 
 > To learn how to test an existing component without cloning an existing project, see [Testing Coveo Turbo Components]({{ site.baseurl }}/docs/Testing-Components).
 
-> For the full reference of the Coveo Turbo CLI, see [CLI Reference]({{ site.baseurl }}/docs/CLI-Reference).
+> For the full reference of the Coveo Turbo CLI, see [CLI Reference]({{ site.baseurl }}/docs/CLI-reference).
 
 ## Install Prerequisites
 
@@ -67,7 +67,7 @@ On Windows:
 .\node_modules\.bin\coveops build TestComponent
 ```
 
-> For a full list of all build options, see [CLI Reference - Build]({{ site.baseurl }}/docs/CLI-Reference#build).
+> For a full list of all build options, see [CLI Reference - Build]({{ site.baseurl }}/docs/CLI-reference#build).
 
 > You should consider enabling watch on your builds, so you don't have to manually run the build command every time you make changes. The command would look like this:
 >
