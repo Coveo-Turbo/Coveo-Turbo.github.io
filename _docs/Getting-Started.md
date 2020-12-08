@@ -67,7 +67,7 @@ On Windows:
 .\node_modules\.bin\coveops build TestComponent
 ```
 
-> For a full list of all build options, see [CLI Reference - Build]({{ site.baseurl }}/docs/CLI-Reference#build).
+> For a full list of all build options, see [CLI Reference - Build]({{ site.baseurl }}/docs/CLI-reference#build).
 
 > You should consider enabling watch on your builds, so you don't have to manually run the build command every time you make changes. The command would look like this:
 >
