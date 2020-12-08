@@ -10,7 +10,7 @@ This article explains how to get started using Coveo Turbo to create, modify, an
 
 > To learn how to test an existing component without cloning an existing project, see [Testing Coveo Turbo Components]({{ site.baseurl }}/docs/Testing-Components).
 
-> For the full reference of the Coveo Turbo CLI, see [CLI Reference]({{ site.baseurl }}/docs/CLI-Reference).
+> For the full reference of the Coveo Turbo CLI, see [CLI Reference]({{ site.baseurl }}/docs/CLI-reference).
 
 ## Install Prerequisites
 
