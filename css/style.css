@@ -179,21 +179,8 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to right, #04adfe, #1feacf);
-    /* border-bottom: solid 2px #04adfe; */
-    position: relative;
+    background-image: linear-gradient(to right, #1d2540, #1d2a54);
 }
-
-/* header:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-image: linear-gradient(to right, #04adfe, #1feacf);
-    background: #f3f3f3;
-} */
 
 header .container {
     display: flex;
@@ -222,13 +209,13 @@ header {
     align-items: center;
 }
 .logo {
-    width: 150px;
-    margin-bottom: -7px;
+    width: 120px;
+    margin-top: -7px;
 }
 
 .logo__sub-tl {
     font-size: 18px;
-    color: #fff;
+    color: #f58003;
     padding-left: 15px;
     margin-left: 15px;
     border-left: solid 1px #fff;
@@ -251,7 +238,6 @@ header {
 .nav-search .CoveoSearchInterface {
     min-height: unset;
     margin-top: -5px;
-    max-width: 450px;
 }
 
 .nav-dropdown {
@@ -266,7 +252,6 @@ header .CoveoSearchbox {
 }
 
 header .CoveoSearchbox .magic-box .magic-box-input {
-    border-radius: 32px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     color: #3f4f86;
@@ -276,15 +261,14 @@ header .CoveoSearchbox .magic-box .magic-box-input input,
 header .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay,
 header .CoveoSearchbox .CoveoSearchButton {
     height: 38px;
-    background: #f3f3f3;
 }
 
 header .CoveoSearchbox .magic-box .magic-box-input input {
-    color: #333357;
+    color: #1d2540;
 }
 
 header .CoveoSearchbox .magic-box .magic-box-input input::placeholder {
-    color: #333357;
+    color: #3f4f86;
 }
 
 header .nav-dropdown {
@@ -299,17 +283,16 @@ header .nav-dropdown {
     font-size: 22px;
     display: block;
     padding: 25px;
-    color: #333357;
+    color: #fff;
 }
 
 .nav-dropdown__li a:hover {
-    /* background: #04adfe; */
-    color: #04adfe;
+    background: #333c5d;
 }
 
 .nav-dropdown__toggler {
     height: 100%;
-    background: transparent;
+    background: #1d2540;
     width: 80px;
     height: 100%;
     display: flex;
@@ -317,12 +300,6 @@ header .nav-dropdown {
     justify-content: center;
     color: #fff;
     cursor: pointer;
-    transition: all 1s ease;
-}
-
-.nav-dropdown__toggler:hover {
-    background: #1feacf;
-    color: #fff;
 }
 
 .nav-dropdown__content {
@@ -330,7 +307,7 @@ header .nav-dropdown {
     right: 0;
     top: 80px;
     padding: 25px;
-    background: #fff;
+    background: #1d2540;
     z-index: 10;
     height: 100vh;
     height: -moz-calc(100vh - 80px);
@@ -391,11 +368,10 @@ header .nav-dropdown {
 .nav-tl__content {
     padding: 10px;
     display: inline-block;
-    background: #fff;
+    background: #1d2540;
     position: relative;
     z-index: 2;
     padding-left: 25px;
-    color: #333357;
 }
 
 .nav-tl__line {
@@ -445,7 +421,7 @@ header .nav-dropdown {
 
 .section-tl {
     font-size: 35px;
-    color: #333357;
+    color: #1d2540;
     font-weight: 900;
     position: relative;
     text-align: center;
@@ -506,8 +482,8 @@ header .nav-dropdown {
 } */
 
 .scroll-nav--a:hover {
-    color: #f05245;
-    border-bottom: solid 2px #f05245;
+    color: #f27f04;
+    border-bottom: solid 2px #f27f04;
 }
 
 
@@ -515,43 +491,20 @@ header .nav-dropdown {
 
 .component-search .CoveoSearchbox .magic-box,
 .component-search .CoveoSearchbox .CoveoSearchButton {
-    border: solid 1px #04adfe;
-}
-
-.CoveoSearchInterface .coveo-search-section--sm {
-    max-width: 680px;
-}
-
-.CoveoSearchButton {
-    border-top-right-radius: 100px!important;
-    border-bottom-right-radius: 100px!important;
-}
-
-.CoveoSearchbox .magic-box {
-    border-top-left-radius: 100px!important;
-    border-bottom-left-radius: 100px!important;
-}
-
-.magic-box .magic-box-input {
-    background: transparent;
+    border: solid 1px #1d2540;
 }
 
 .component-search .CoveoSearchbox .CoveoSearchButton {
-    background: #04adfe;
+    background: #1d2540;
 }
 
 .component-search .coveo-search-button-svg {
     color: #fff;
 }
 
-.coveo-search-button-svg {
-    fill: #04adfe;
-    color: #04adfe;
-}
-
 .hero__txt b, strong {
     font-weight: 500;
-    color: #f05245;
+    color: #f27f04;
 }
 
 /* RESULTS TEMPLATE */
@@ -573,7 +526,7 @@ header .nav-dropdown {
 .CoveoResult a:visited, .CoveoResult a:visited:hover,
 .CoveoResultLink:visited, .CoveoResultLink:visited:hover, a.CoveoResultLink:visited, a.CoveoResultLink:visited:hover, .CoveoResult a.CoveoResultLink:visited, .CoveoResult a.CoveoResultLink:visited:hover 
 {
-    color: #f05245;
+    color: #f27f04;
     font-weight: bold;
     margin-bottom: 10px;
     display: block;
