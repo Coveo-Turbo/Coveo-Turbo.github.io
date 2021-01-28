@@ -245,6 +245,7 @@ This command adds the necessary files to kick-start a project to create a sharea
 | sandbox-path | option | string | `pages` | no | **[Deprecated]** The path where the sandbox is generated. |
 | with-page | option | boolean | `false` | no | Whether to create a page in which to test your component. |
 | page-path | option | string | `pages` | no | The path where the page is generated. |
+| page-layout | option | string | `basic-search` | no | **[CLI Version 0.14.0+]** The layout to use when creating the page. Consult the `create:page` reference `layout` option for advanced usage. |
 | description | option | string | none | no | The description of the component. This updates the description on the README, as well as set the description field in the `package.json` file. |
 | package-name | option | string | none | no | The name of the package that houses the component. By default, the param-case version of the `name` will be added under the `@coveops` scope. For example, setting the name as `TestComponent` yields `@coveops/test-component`. This option is meant to override the default behavior. |
 | with-docker | option | boolean | none | no | Adds a `docker-compose.yml` file containing a NodeJS v12 environment. For more details, see [`Create a Docker Environment`](#create-a-docker-environment) section. |
@@ -415,7 +416,7 @@ This command creates a folder with a generated search page to be used for basic 
 | Argument | Command Type | Type | Default | Required | Comments |
 | --- | --- | --- | --- | --- | --- |
 | name | argument | string | `index` | no | The name of the page to be generated. The page is available at the path of the local url. |
-| layout | argument | string | `basic-search` | no | The name of the page layout to use when making the page. |
+| layout | argument | string | `basic-search` | no | **[CLI Version 0.14.0+]** The name of the page layout to use when making the page. |
 | path | option | string | `pages` | no | The path where the page code is generated. |
 | verbosity | option | string | none | no | Adjusts the verbosity of error logging during the run-time. |
 
@@ -441,6 +442,14 @@ This command creates a folder with a generated search page to be used for basic 
 >
 > ```bash
 > ./node_modules/.bin/coveops create:page --path test
+> ```
+>
+> To use a specific page layout
+>
+> Note: changing the path of the page requires using the same path when serving it.
+>
+> ```bash
+> ./node_modules/.bin/coveops create:page --layout servicenow-agent-panel
 > ```
 
 </div>
