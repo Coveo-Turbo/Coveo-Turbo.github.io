@@ -14,6 +14,7 @@ desc: The reference documentation for the CLI tool
     - [Create a Project](#create-a-project)
     - [Create a Component](#create-a-component)
     - [Create a Stylesheet](#create-a-stylesheet)
+    - [Adding images](#adding-images)
     - [Create a Page](#create-a-page)
     - [Deploy a Page](#deploy-a-page-to-the-coveo-platform)
     - [Create Locales](#create-locales)
@@ -375,6 +376,24 @@ This command creates a blank stylesheet to be used to canvas for your needs. It 
 </div>
 
 <div class="content-section" markdown="1">
+### Adding images
+
+**[CLI Version 0.14.0+]**
+
+Some implementations require custom icons or images to be displayed as part of their templates. To achieve this, follow these steps:
+
+1. Add your images to the `images` folder of the `src` folder (`.\src\images`). If that folder does not yet exist, you need to create it.
+2. If you are not already running the `watch` command, build the project with the `make build` command. The images should now be copied to the `dist` folder.
+3. Refresh the page or run the `make serve` command. Images should now be exposed under `/images`, and can be used in the HTML markup or in CSS.
+
+When referencing an image in CSS, use the relative path to the `images` folder in `src`.
+
+When referencing an image in the HTML markup, use the relative url path starting with `/images`.
+
+The folder path will be respected one-to-one with the source. For example, if an image is located at `src/images/subfolder/image.png`, the output will be `dist/images/subfolder/image.png`. Its CSS use will be `../images/subfolder/image.png`, while it will be `http://localhost:<PORT>/images/subfolder/image.png` in HTML.
+</div>
+
+<div class="content-section" markdown="1">
 #### Component Initialization
 
 The Coveo component registration allows for two main strategies to load a component once the scripts and markup are present on the page: [Eager and Lazy](https://docs.coveo.com/en/295).
@@ -396,6 +415,7 @@ This command creates a folder with a generated search page to be used for basic 
 | Argument | Command Type | Type | Default | Required | Comments |
 | --- | --- | --- | --- | --- | --- |
 | name | argument | string | `index` | no | The name of the page to be generated. The page is available at the path of the local url. |
+| layout | argument | string | `basic-search` | no | The name of the page layout to use when making the page. |
 | path | option | string | `pages` | no | The path where the page code is generated. |
 | verbosity | option | string | none | no | Adjusts the verbosity of error logging during the run-time. |
 
@@ -422,6 +442,20 @@ This command creates a folder with a generated search page to be used for basic 
 > ```bash
 > ./node_modules/.bin/coveops create:page --path test
 > ```
+
+</div>
+
+<div class="content-section" markdown="1">
+#### Available Page Layouts
+**[CLI Version 0.14.0+]**
+
+| Name | Environment | Description |
+| --- | --- | --- |
+| `basic-search` | Any | This is the default page layout when no `--layout` is specified. It creates a basic search page with the generic layout including tabs, facets, and result templates. |
+| `servicenow-agent-panel` | ServiceNow | Generates a search template tailored for the ServiceNow Agent Panel experience. |
+| `salesforce-community-search` | Salesforce | Generates a variant of the basic-search that's intended to be copied into a VisualForce component in a Salesforce organization. |
+| `salesforce-agent-panel` | Salesforce | Generates a template specific to the Salesforce Agent Panel in Salesforce Lightning. |
+| `salesforce-attached-results` | Salesforce | Generates a template specific to the Attached Results panel in Salesforce Lightning. |
 
 </div>
 
