@@ -24,13 +24,13 @@ html, body {
 
 .col-doc {
     padding: 0 15px;
-    flex: 0 0 33.333%;
+    flex: 0 0 50%;
     margin-bottom: 20px;
 }
 
-.col-doc:nth-child(3n+2) {
+.col-doc:nth-child(2n) {
     border-left: solid 1px #fff;
-    border-right: solid 1px #fff;
+    /* border-right: solid 1px #fff; */
 }
 
 .doc-card {
@@ -129,7 +129,7 @@ table, th, td {
 }
 
 #search .CoveoResultsPerPage {
-    float: none;
+    float: right;
 }
 
 /* RE-STYLE */
@@ -745,6 +745,7 @@ header .nav-dropdown {
 
 .docs-list {
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* GENERICS */
