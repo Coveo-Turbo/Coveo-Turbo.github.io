@@ -26,3 +26,9 @@ Once you are satisfied with your post, modify its name so that it starts with th
 To add a guide, create a new `.md` file in the `_docs` folder. Ensure that you copy the frontmatter (what's between the `---`) and adapt its metadata accordingly.
 
 Contrary to blog posts, merging the new page automatically publishes it.
+
+### Running the project locally
+
+1. Ensure you install Ruby version 2.7.2; avoid Ruby version 3.
+2. Install jekyll and bundler: `gem install jekyll bundler`
+3. `make serve`
