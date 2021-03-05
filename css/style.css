@@ -179,7 +179,7 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to right, #04adfe, #1feacf);
+    background-color: #333357;
     /* border-bottom: solid 2px #04adfe; */
     position: relative;
 }
