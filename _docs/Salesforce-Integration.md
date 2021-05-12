@@ -236,3 +236,142 @@ Once installed and you've authenticated to the Salesforce Sandbox, you can use t
 
 ![The context menu within Visual Studio Code](/assets/images/salesforce-integration/vsc-deploy.png){:class="img-responsive"}
 </div>
+
+### Implementing custom localization
+
+In order to implement localization for translations that aren't out of the box in your Coveo for Salesforce components, we will leverage the component's static resources.
+
+In order to simplify development, you can and should use Turbo's CLI commands regarding localization. Let us assume we created the following translation files using the CLI commands as an example:
+
+```
+// en.js
+{
+    "All": "All",
+    "Articles": "Articles"
+}
+```
+
+```
+// fr.js
+{
+    "All": "Tout",
+    "Articles": "Articles"
+}
+```
+
+Note that every key matches a `data-caption` or the value captured by the `Coveo.l` function.
+
+In your Salesforce component's static resources folder, create the following folder and files:
+
+```
++ locales
+| + en.js
+| + fr.js
+```
+
+Every file name should match the language code you are trying to translate (i.e. English is en, French is fr, Spanish is es-es, etc.). We will keep the folder name `locales` for simplicity's sake.
+
+The contents of `<language-code>.js` are as follows:
+
+```
+var LOCALES = {
+    "CancelLastAction": "Previous",
+    "All": "All",
+    "Articles": "Articles",
+}
+
+/**
+ * Do not delete or modify the following code!!!
+ */
+
+!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("coveo-search-ui")):"function"==typeof define&&define.amd?define(["coveo-search-ui"],t):"object"==typeof exports?exports.CoveoLocalizationManager=t(require("coveo-search-ui")):e.CoveoLocalizationManager=t(e.Coveo)}(window,(function(e){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){e.exports=n(1)},function(e,t,n){e.exports=n(2)},function(e,t,n){const o=n(3);e.exports=function(e,t,n,r){t=t||[];const i=(r=r||{}).disableTargetting,c=n?[n]:document.querySelectorAll(".CoveoSearchInterface");String.locale;var u={};u[String.locale]=e,String.toLocaleString(u),i||c.forEach((function(n){n.addEventListener(o.InitializationEvents.beforeInitialization,(function(n,r){o.options(n.target,function(e,t){t=t||{};const n=function(e){let t=function(e){return Object.entries(e).filter((function(e){return"string"==typeof e[1]})).reduce((function(e,t){return e[t[0]]=t[1],e}),{})}(e),n=function(e){return Object.entries(e).filter((function(e){return"string"!=typeof e[1]})).reduce((function(e,t){return e[t[0].replace(/^Coveo/,"")]=t[1],e}),{})}(e);return{locales:t,overrides:n}}(e)||{},o=n.locales||{},r=n.overrides||{};return t=(t=t.map((function(e){e.replace(/^Coveo/,"")}))).concat(Object.keys(r)).filter((function(e,t,n){return n.indexOf(e)==t})),console.log(t,r),t.reduce((function(e,t){return e[t]={valueCaption:Object.assign({},o,r[t])},e}),{})}(e,t))}))}))},window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=function(e,t){t=t||window;for(var n=0;n<this.length;n++)e.call(t,this[n],n,this)}),Object.entries||(Object.entries=function(e){for(var t=Object.keys(e),n=t.length,o=new Array(n);n--;)o[n]=[t[n],e[t[n]]];return o}),"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){"use strict";if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),o=1;o<arguments.length;o++){var r=arguments[o];if(null!=r)for(var i in r)Object.prototype.hasOwnProperty.call(r,i)&&(n[i]=r[i])}return n},writable:!0,configurable:!0})},function(t,n){t.exports=e}])}));
+
+CoveoLocalizationManager(LOCALES);
+```
+
+Let's break it down:
+
+First, we have the locale JSON object we generated in our project. We will assign it to a variable named `LOCALES`.
+
+```
+var LOCALES = {
+    "CancelLastAction": "Previous",
+    "All": "All",
+    "Articles": "Articles",
+}
+```
+
+The following piece of code comes directly from the localization-manager turbo component. Make sure you're using the latest code from [https://unpkg.com/@coveops/localization-manager/dist/index.min.js](https://unpkg.com/@coveops/localization-manager/dist/index.min.js).
+
+```
+!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("coveo-search-ui")):"function"==typeof define&&define.amd?define(["coveo-search-ui"],t):"object"==typeof exports?exports.CoveoLocalizationManager=t(require("coveo-search-ui")):e.CoveoLocalizationManager=t(e.Coveo)}(window,(function(e){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){e.exports=n(1)},function(e,t,n){e.exports=n(2)},function(e,t,n){const o=n(3);e.exports=function(e,t,n,r){t=t||[];const i=(r=r||{}).disableTargetting,c=n?[n]:document.querySelectorAll(".CoveoSearchInterface");String.locale;var u={};u[String.locale]=e,String.toLocaleString(u),i||c.forEach((function(n){n.addEventListener(o.InitializationEvents.beforeInitialization,(function(n,r){o.options(n.target,function(e,t){t=t||{};const n=function(e){let t=function(e){return Object.entries(e).filter((function(e){return"string"==typeof e[1]})).reduce((function(e,t){return e[t[0]]=t[1],e}),{})}(e),n=function(e){return Object.entries(e).filter((function(e){return"string"!=typeof e[1]})).reduce((function(e,t){return e[t[0].replace(/^Coveo/,"")]=t[1],e}),{})}(e);return{locales:t,overrides:n}}(e)||{},o=n.locales||{},r=n.overrides||{};return t=(t=t.map((function(e){e.replace(/^Coveo/,"")}))).concat(Object.keys(r)).filter((function(e,t,n){return n.indexOf(e)==t})),console.log(t,r),t.reduce((function(e,t){return e[t]={valueCaption:Object.assign({},o,r[t])},e}),{})}(e,t))}))}))},window.NodeList&&!NodeList.prototype.forEach&&(NodeList.prototype.forEach=function(e,t){t=t||window;for(var n=0;n<this.length;n++)e.call(t,this[n],n,this)}),Object.entries||(Object.entries=function(e){for(var t=Object.keys(e),n=t.length,o=new Array(n);n--;)o[n]=[t[n],e[t[n]]];return o}),"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){"use strict";if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),o=1;o<arguments.length;o++){var r=arguments[o];if(null!=r)for(var i in r)Object.prototype.hasOwnProperty.call(r,i)&&(n[i]=r[i])}return n},writable:!0,configurable:!0})},function(t,n){t.exports=e}])}));
+```
+
+Finally, this line initializes the translations.
+
+```
+CoveoLocalizationManager(LOCALES);
+```
+
+Copy and paste that code for every translation you have, replacing the contents of the `LOCALES` variable with the respective translations.
+
+Finally, we will need to load those files as custom scripts in our Salesforce aura component:
+
+```
+<CoveoV2:CommunitySearch 
+    searchHub="{!v.searchHub}" 
+    name="{!v.name}"
+    debug="{!v.debug}"
+    customScripts="{!join(',',
+        $Resource.CoveoV2__searchUi + '/js/cultures/' + $Locale.language + '.js',
+        $Resource.<COMPONENT_NAME> + '/locales/' + $Locale.language + '.js',
+        $Resource.<COMPONENT_NAME> + '/index.min.js'
+    )}"
+/>
+```
+It's as simple as that!
+
+Now, if you have language codes that differ from Coveo's language codes, like Spanish, you can do the following:
+
+```
+    <aura:if isTrue="{!$Locale.language == 'es'}">
+        <CoveoV2:CommunitySearch 
+            searchHub="{!v.searchHub}" 
+            name="{!v.name}"
+            debug="{!v.debug}"
+            customScripts="{!join(',',
+                $Resource.CoveoV2__searchUi + '/js/cultures/es-es.js',
+                $Resource.<COMPONENT_NAME> + '/locales/es-es.js',
+                $Resource.<COMPONENT_NAME> + '/index.min.js'
+            )}"
+        />
+        <aura:set attribute="else">
+            <CoveoV2:CommunitySearch 
+                searchHub="{!v.searchHub}" 
+                name="{!v.name}"
+                debug="{!v.debug}"
+                customScripts="{!join(',',
+                    $Resource.CoveoV2__searchUi + '/js/cultures/' + $Locale.language + '.js',
+                    $Resource.<COMPONENT_NAME> + '/locales/' + $Locale.language + '.js',
+                    $Resource.<COMPONENT_NAME> + '/index.min.js'
+                )}"
+            />
+        </aura:set>
+    </aura:if>
+```
+
+In this instance, Salesforce defines the Spanish language code as `es` and Coveo defines it as `es-es`.
+
+For multiple conditions:
+
+```
+<aura:if isTrue="{!$Locale.language == 'en'}">
+    .. do something ..
+</aura:if>
+<aura:if isTrue="{!$Locale.language == 'fr'}">
+    .. do something ..
+</aura:if>
+<aura:if isTrue="{!$Locale.language == 'es'}">
+    .. do something ..
+</aura:if>
+```
