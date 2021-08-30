@@ -507,6 +507,32 @@ Some of the arguments have a corresponding environment variable that can be used
 | token | COVEO_TOKEN |
 | name | COVEO_PAGE_NAME |
 
+#### Deploy to Another Region or HIPAA
+
+For each region, the API endpoints that Coveo will communicate with will be different. By default, Coveo Turbo uses the US data-center domain names and sets them as defaults for you but it can accomodate different regions with additional configuration.
+
+In the `.env` file, add the following environment variables and specify the data-center:
+- COVEO_REST_URI
+- COVEO_SEARCH_PAGE_HOST
+
+For example, the EU data center will require the following configuration:
+
+```bash
+COVEO_REST_URI=https://platform-eu.cloud.coveo.com/rest/search
+COVEO_SEARCH_PAGE_HOST=search-eu.cloud.coveo.com
+```
+
+For more information on how to obtain your data region, you can consult the [Multi-Region Deployment Configuration documentation](https://docs.coveo.com/en/2976/coveo-solutions/deployment-regions-and-strategies#configuration).
+
+Similarly, the corresponding endpoints will be different for HIPAA implementations and the same configuration parameters will need to be passed with the corresponding HIPAA endpoints.
+
+Here's an example of configuration you'd add to your `.env` for HIPAA for the US data-center:
+
+```bash
+COVEO_REST_URI=https://platformhipaa.cloud.coveo.com/rest/search
+COVEO_SEARCH_PAGE_HOST=searchhipaa.cloud.coveo.com
+```
+
 </div>
 
 <div class="content-section" markdown="1">
