@@ -16,7 +16,7 @@ This article explains how to get started using Coveo Turbo to create, modify, an
 
 To install Coveo Turbo, you need a Node environment with npm. You can download and install both on the [node.js website](https://nodejs.org/en/).
 
-> Coveo Turbo requires at least version 12 of Node.js. While using previous versions may work for certain commands, it's possible that other commands will not work properly.
+> Coveo Turbo requires at least version 12 of Node.js. While using previous versions may work for certain commands, it's possible that other commands will not work properly. Please note that version 16 of Node.js and beyond is not supported. For best performance, please use version 12 or 14.
 
 ## Creating a New Project
 
