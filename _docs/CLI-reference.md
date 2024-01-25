@@ -74,6 +74,7 @@ You can also add the command to your `package.json` scripts to continue using fa
 | disable-swapvar | option | boolean | none | no | Whether to remove the Webpack loader that injects the `SwapVar` utility to the root `index` file before building. By default, the build command injects `SwapVar` to add components to the root of the `Coveo` object at runtime. |
 | watch | option | boolean | none | no | Whether to watch for changes and build after the `watch-timeout`. |
 | watch-timeout | option | number | 1000 | no | The amount of time (in milliseconds) to watch for changes. Increase this value if you change multiple files at a time. |
+| performance-threshold | option | number | null | no | The maximum webpack size of assets and entrypoints in KiB. By default, it uses webpack's default performance settings. This option allows you to override it. However, it may affect performance of your bundle if you go beyond webpack's default maximum size. |
 
 
 #### Examples:
@@ -91,7 +92,13 @@ You can also add the command to your `package.json` scripts to continue using fa
 > ```bash
 > ./node_modules/.bin/coveops build TestComponent --watch
 > ```
+>
+> To override maximum bundle size:
 > 
+> ```bash
+> ./node_modules/.bin/coveops build TestComponent --performance-threshold 244
+> ```
+>
 > To use vanilla JavaScript:
 > 
 > ```bash
